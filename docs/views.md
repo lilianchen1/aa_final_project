@@ -3,24 +3,28 @@
 ## New Session
 ![new-session]
 
-## Feed Show (landing page)
-![feed-show]
+## Question Show
+![question-show]
 
-## Blog Show
-![blog-show]
+## Question Index
+![question-index]
 
-## Post Show
-![post-show]
+## Quesion New
+![question-new]
 
-## Post Form
-![post-form]
+## Profile Page
+![profile-page]
 
-## Search Results
-![search-results]
+## Tags Index
+![tags-index]
+
+## Tags Show
+![tags-show]
 
 [new-session]: ./wireframes/new_session.png
-[feed-show]: ./wireframes/feed_show.png
-[blog-show]: ./wireframes/blog_show.png
-[post-show]: ./wireframes/post_show.png
-[post-form]: ./wireframes/post_form.png
-[search-results]: ./wireframes/search_results.png
+[question-show]: ./wireframes/question_show.png
+[question-index]: ./wireframes/question_index.png
+[question-new]: ./wireframes/question_new.png
+[profile-page]: ./wireframes/profile_page.png
+[tags-index]: ./wireframes/tags_index.png
+[tags-show]: ./wireframes/tags_show.png

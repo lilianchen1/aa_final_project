@@ -1,26 +1,28 @@
 # Schema Information
 
-## blogs
+## questions
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
+user_id     | integer   | not null, foreign key (references users)
 title       | string    | not null
+content     | text      | not null
 
-## followings
+## answers
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
+question_id | integer   | not null, foreign key (references question)
+user_id     | integer   | not null, foreign key (references user)
+content     | text      | not null
 
-## posts
+## comments
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
+user_id     | integer   | not null, foreign key (references user)
+answer_id   | integer   | not null, foreign key (references answer)
+content     | string    |
 
 ## tags
 column name | data type | details
@@ -32,14 +34,13 @@ label       | string    | not null, unique
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
+question_id | integer   | not null, foreign key (references question)
+tag_id      | integer   | not null, foreign key (references tag)
 
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------
 id              | integer   | not null, primary key
-email           | string    | not null, unique
+username        | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
-
