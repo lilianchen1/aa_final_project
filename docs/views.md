@@ -1,13 +1,13 @@
 # View Wireframes
 
-## New Session
-![new-session]
+## Users Index
+![users-index]
 
 ## Question Show
 ![question-show]
 
 ## Question Index
-![question-index]
+![questions-index]
 
 ## Quesion New
 ![question-new]
@@ -19,12 +19,12 @@
 ![tags-index]
 
 ## Tags Show
-![tags-show]
+![tag-show]
 
-[new-session]: ./wireframes/new_session.png
-[question-show]: ./wireframes/question_show.png
-[question-index]: ./wireframes/question_index.png
-[question-new]: ./wireframes/question_new.png
-[profile-page]: ./wireframes/profile_page.png
-[tags-index]: ./wireframes/tags_index.png
-[tags-show]: ./wireframes/tags_show.png
+[users-index]: ./wireframes/users_index.jpg
+[question-show]: ./wireframes/question_show.jpg
+[questions-index]: ./wireframes/questions_index.jpg
+[question-new]: ./wireframes/question_new.jpg
+[profile-page]: ./wireframes/user_profile.jpg
+[tags-index]: ./wireframes/tags_index.jpg
+[tag-show]: ./wireframes/tag_show.jpg
