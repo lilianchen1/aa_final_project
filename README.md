@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: #
+[heroku]: https://no-phenotype.herokuapp.com/
 
 ## Minimum Viable Product
 NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
