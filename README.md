@@ -1,4 +1,4 @@
-# Flux-capacitr
+# No Phenotype
 
 [Heroku link][heroku]
 
