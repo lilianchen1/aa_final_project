@@ -2,23 +2,26 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://flux-capacitr.herokuapp.com
+[heroku]: #
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] Create accounts
+- [ ] Create sessions (log in)
+- [ ] Create questions
+- [ ] View list of questions (sorted by time of creation)
+- [ ] Answer questions
+- [ ] View their own profile page
+- [ ] View other users' profile page
+- [ ] Tag questions
+- [ ] View questions by tags
+- [ ] Search for tags
+- [ ] Search for other users
+- [ ] Comment on answers
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,63 +32,78 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: User, Question (1 day)
+I will first implement questions in both the back-end and front-end. With
+Backbone front end, I will have questions index view, questions index item view
+(used for subviews), show view for individual questions, and form for creating
+new questions.
+In the back-end, I will add API routes to post data as JSON, then user jBuilder
+as a means for the Backbone models to fetch data from those routes.
+I will next implement user authentication. Users can sign up/sign in
+(username, password) and sign out. Users are redirected to root (questions index
+page) upon logging in. Non-logged in users can still view questions index and
+show pages, but they can't post/answer questions (or comment on questions).
+
+I will build associations between the User model and Question model.
+
+I will build an index page of all the users (with links to their profile page
+by username).
+
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Answering questions (1 days)
+I will add more API routes (for answers). I will build associations
+between my Question/Answer/User models (in both the front-end and back-end).
+The ultimate goal will be to display answers on question's show page with
+user's username.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: Profile Page (1 days)
+User's profile page will display questions and answers they have created, with
+links to the questions' show pages.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+
+### Phase 4: Tags (2 day)
+Users can create tags for questions.
+I will build association between Tag and Question models.
+I will make a tags index page with links (by the tag name) to the tag show page.
+Show page will have questions tagged with that particular tag. Clicking on question
+(title) will bring to the question show page.
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Searches (1 day)
+Implement both search by tag name and search by user's username.
+Search box should be on the index page (of tags or users).
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+### Phase 6: Comments (2 days)
+I will build my Comment(s) MVC in both the front-end and back-end.
+(C = controller in the back-end and collection in the front-end). I will build
+associations between Comment and Answer. By the end of this phase, users
+will be able to comment on answers. The idea is for comments to be
+displayed on answer show page (which is itself a subview of question show page).
+
+[Details][phase-six]
+
+### Phase 7: User Profile Page con't (1 days)
+I will display comments created my user on profile page. By the end of this phase,
+users will be able to click on anything they've created (question, answer, or comment),
+and be shown the question show page associated with the question, answer, or comment.
+
+[Details][phase-seven]
+
+### Bonus Features
+- [ ] Up-vote and down-vote on questions and answers (polymorphic association)
+- [ ] Another question's index page sorted by popularity
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
 [phase-five]: ./docs/phases/phase5.md
-
