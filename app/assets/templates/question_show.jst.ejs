@@ -1,0 +1,8 @@
+<div class="question-show">
+  <h3><%= question.escape("title") %></h3>
+  <p>Asked: <%= (question.escape("created_at")).slice(0, 10) %></p>
+  <p>Asked by: <%= question.get('user') %></p>
+  <p><%= question.escape("content") %></p>
+</div>
+
+<ul class="answers"></ul>

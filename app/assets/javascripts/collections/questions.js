@@ -14,7 +14,7 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     question.fetch({
       success: function() {
         this.add(question);
-      }
+      }.bind(this)
     });
 
     return question;

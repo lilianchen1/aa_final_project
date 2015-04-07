@@ -1,7 +1,7 @@
 class Api::QuestionsController < Api::ApiController
 
   def create
-    @question = Question.new(question_params)
+    @question = current_user.questions.new(question_params)
     if @question.save
       render json: @question
     else
@@ -10,13 +10,15 @@ class Api::QuestionsController < Api::ApiController
   end
 
   def show
-    @question = Question.find(params[:id])
-    render json: @post
+    @question = Question.includes(:user).find(params[:id])
+    # render json: @post
+    #jbuilder with current_user
+    render :show
   end
 
   def index
     @questions = Question.all
-    render json: @questions
+    render :index
   end
 
   def destroy

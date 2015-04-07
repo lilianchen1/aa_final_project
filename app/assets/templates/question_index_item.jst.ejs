@@ -1,0 +1,6 @@
+<h4><a href="#/questions/<%= question.id %>"><%= question.escape("title") %></a></h4>
+<p><%= question.escape("content") %></p>
+<p>Asked by: <%= question.get('user') %>
+<br>
+  Asked: <%= question.escape("created_at").slice(0, 10) %>
+</p>
