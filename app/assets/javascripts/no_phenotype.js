@@ -4,7 +4,14 @@ window.NoPhenotype = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    var $rootEl = $("#content");
+    var questions = new NoPhenotype.Collections.Questions();
+    new NoPhenotype.Routers.Router({
+      $rootEl: $rootEl,
+      questions: questions
+    });
+
+    Backbone.history.start();
   }
 };
 
