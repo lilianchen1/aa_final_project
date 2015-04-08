@@ -8,12 +8,20 @@
 </head>
 <body>
 
-  <%= image_tag "NoPhenotype-logo.png" %>
+  <div class="nav-bar">
 
-  <% if !current_user.nil? %>
-    <h3 id="username"><%= current_user.username %></h3>
-    <%= button_to "Log Out", session_url, method: :delete %>
-  <% end %>
+    <%= image_tag "NoPhenotype.png" %>
+
+    <div class="nav-bar-right">
+
+      <% if !current_user.nil? %>
+        <h3><%= current_user.username %></h3>
+        <%= button_to "Log Out", session_url, method: :delete %>
+      <% end %>
+
+    </div>
+
+  </div>
 
   <% if flash.now[:errors] %>
     <% flash.now[:errors].each do |error| %>
