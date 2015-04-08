@@ -5,7 +5,7 @@ class Api::AnswersController < Api::ApiController
     @answer.user = current_user
 
     if @answer.save
-      render json: @answer
+      render :show
     else
       render json: @answer.errors.full_messages, status: :unprocessable_entity
     end

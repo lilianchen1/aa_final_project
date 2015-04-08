@@ -34,7 +34,7 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User, Question (1.5 days)
+### Phase 1: User, Question (1 days)
 Implement questions in both the back-end and front-end. With
 Backbone front end, have questions index view, questions index item view
 (used for subviews), show view for individual questions, and form for creating
@@ -49,7 +49,7 @@ page) upon logging in.
 Build associations between the User model and Question model.
 
 
-### Phase 2: Answering questions (1.5 days)
+### Phase 2: Answering questions (1 days)
 Add more API routes (for answers). Build associations between Question/Answer/User
 models (in both the front-end and back-end).
 The ultimate goal will be to display answers on question's show page with
@@ -72,7 +72,7 @@ are displayed.
 Implement search by tag name.
 
 
-### Phase 4: Comments (2 days)
+### Phase 4: Comments (1 days)
 Build Comment(s) MVC in both the front-end and back-end.
 (C = controller in the back-end and collection in the front-end). Build
 associations between Comment and Answer. By the end of this phase, users

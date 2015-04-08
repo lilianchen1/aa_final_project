@@ -15,18 +15,17 @@ NoPhenotype.Views.AnswerForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    attrs.question_id = this.model.get('question_id');
-    var newAnswer = new NoPhenotype.Models.Answer(attrs);
-    newAnswer.save(attrs, {
+    this.model.save(attrs, {
       success: function() {
-        this.collection.add(newAnswer);
-        var answerShow = new NoPhenotype.Views.AnswerShow({model: newAnswer});
+        this.collection.add(this.model);
+        var answerShow = new NoPhenotype.Views.AnswerShow({model: this.model});
         $("ul.answers").append(answerShow.render().$el);
+        this.model = new NoPhenotype.Models.Answer({
+          question_id: this.model.get('question_id')
+        });
       }.bind(this)
     });
     this.$("textarea").val("");
 
-    // need to fix render so it shows username!!
-    // need to sort by date so latest comes last!
   }
 });

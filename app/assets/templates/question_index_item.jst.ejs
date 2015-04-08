@@ -1,6 +1,15 @@
-<h4><a href="#/questions/<%= question.id %>"><%= question.escape("title") %></a></h4>
-<p><%= question.escape("content") %></p>
-<p>Asked by: <%= question.get('user') %>
-<br>
-  Asked: <%= question.escape("created_at").slice(0, 10) %>
-</p>
+<div class="question-attr">
+  <%= question.get('answercount') %><br>Answers
+</div>
+
+<div class="title-content">
+  <h4><a href="#/questions/<%= question.id %>"><%= question.escape("title") %></a></h4>
+  <p><%= question.escape("content") %></p>
+</div>
+
+<div class="question-asker">
+  <p>Asked by: <%= question.get('user') %>
+  <br>
+    Asked: <%= question.escape("created_at").slice(0, 10) %>
+  </p>
+</div>

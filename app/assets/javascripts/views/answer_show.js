@@ -4,7 +4,7 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   className: "answer",
 
   initialize: function() {
-    this.listenTo(this.model, "sync add remove", this.render);
+    this.listenTo(this.model, "sync add", this.render);
   },
 
   render: function() {
