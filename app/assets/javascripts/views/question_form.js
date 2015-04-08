@@ -18,7 +18,6 @@ NoPhenotype.Views.QuestionForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    debugger
     this.model.save(attrs, {
       success: function() {
         this.collection.add(this.model);
