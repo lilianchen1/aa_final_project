@@ -1,5 +1,6 @@
 NoPhenotype.Collections.Tags = Backbone.Collection.extend({
   url: "/api/tags",
+  model: NoPhenotype.Models.Tag,
 
   getOrFetch: function(id) {
     if (this.get(id)) {

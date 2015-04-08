@@ -12,6 +12,7 @@ NoPhenotype.Views.TagShow = Backbone.View.extend({
       var questionItem = new NoPhenotype.Views.QuestionIndexItem({model: question});
       this.$("ul.tagged-questions").append(questionItem.render().$el);
     }.bind(this));
+    
     return this;
   }
 });

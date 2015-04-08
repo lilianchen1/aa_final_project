@@ -1,0 +1,7 @@
+<h2>Tags</h2>
+
+<ul class="tag-list">
+  <% tags.each(function(tag) { %>
+    <li><a href="#/tags/<%= tag.id %>"><%= tag.escape('name') %></a></li>
+  <% }) %>
+</ul>

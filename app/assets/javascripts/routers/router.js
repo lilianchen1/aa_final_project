@@ -13,6 +13,7 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     "": "index",
     "questions/new": "new",
     "questions/:id": "show",
+    "tags": "tagIndex",
     "tags/:id": "tagShow"
   },
 
@@ -20,6 +21,14 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     var tag = this.tags.getOrFetch(id);
     var tagShow = new NoPhenotype.Views.TagShow({model: tag});
     this._swapView(tagShow);
+  },
+
+  tagIndex: function() {
+    this.tags.fetch();
+    var tagIndexView = new NoPhenotype.Views.TagsIndex({
+      collection: this.tags
+    });
+    this._swapView(tagIndexView);
   },
 
   index: function() {
