@@ -6,12 +6,20 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     this.$header.html(headerView.render().$el);
     this.$rootEl = options.$rootEl;
     this.questions = options.questions;
+    this.tags = new NoPhenotype.Collections.Tags();
   },
 
   routes: {
     "": "index",
     "questions/new": "new",
-    "questions/:id": "show"
+    "questions/:id": "show",
+    "tags/:id": "tagShow"
+  },
+
+  tagShow: function(id) {
+    var tag = this.tags.getOrFetch(id);
+    var tagShow = new NoPhenotype.Views.TagShow({model: tag});
+    this._swapView(tagShow);
   },
 
   index: function() {

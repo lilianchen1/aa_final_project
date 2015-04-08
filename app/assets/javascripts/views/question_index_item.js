@@ -13,6 +13,10 @@ NoPhenotype.Views.QuestionIndexItem = Backbone.View.extend({
       question: this.model
     });
     this.$el.html(content);
+    this.model.tags().each(function(tag) {
+      var tagLink = "<a href='#/tags/" + tag.id + "'>" + tag.get('name') + "</a>  ";
+      this.$("div.tags").append(tagLink);
+    }.bind(this));
     return this;
   }
 });
