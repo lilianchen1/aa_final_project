@@ -10,18 +10,19 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create questions
-- [ ] View list of questions (sorted by time of creation)
-- [ ] Answer questions
-- [ ] View their own profile page
-- [ ] View other users' profile page
+- [X] Create accounts
+- [X] Create sessions (log in)
+- [X] Create questions
+- [X] View list of questions (sorted by time of creation)
+- [X] Answer questions
 - [ ] Tag questions
 - [ ] View questions by tags
 - [ ] Search for tags
-- [ ] Search for other users
 - [ ] Comment on answers
+- [ ] Upvote and downvote questions and answers
+- [ ] View their own profile page
+- [ ] View other users' profile page
+- [ ] Search for other users
 
 
 ## Design Docs
@@ -42,14 +43,10 @@ In the back-end, add API routes to post data as JSON, then user jBuilder
 as a means for the Backbone models to fetch data from those routes.
 
 Implement user authentication. Users can sign up/sign in
-(username, password) and sign out. Users are redirected to root (questions index
-page) upon logging in. Non-logged in users can still view questions index and
-show pages, but they can't post/answer questions (or comment on questions).
+(username, email, password) and sign out. Users are redirected to root (questions index
+page) upon logging in.
 
 Build associations between the User model and Question model.
-
-Build an index page of all the users (with links to their profile page, which is
-very minimalistic right now).
 
 
 ### Phase 2: Answering questions (1.5 days)
