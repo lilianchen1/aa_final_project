@@ -2,7 +2,7 @@ class Question < ActiveRecord::Base
   validates :title, :content, :user, presence: true
 
   belongs_to :user
-  has_many :answers
+  has_many :answers, dependent: :destroy
   has_many :taggings
 
   has_many :tags, through: :taggings, source: :tag
