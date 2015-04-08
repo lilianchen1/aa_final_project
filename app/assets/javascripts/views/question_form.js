@@ -12,12 +12,18 @@ NoPhenotype.Views.QuestionForm = Backbone.View.extend({
       question: this.model
     });
     this.$el.html(content);
+    //
+    // var tagForm = new NoPhenotype.Views.TagForm({
+    //   question_id: this.model.id
+    // });
+    // (tagForm.render().$el).insertBefore(this.$("button.ask-question"));
     return this;
   },
 
   submit: function(event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
+    debugger
     this.model.save(attrs, {
       success: function() {
         this.collection.add(this.model);

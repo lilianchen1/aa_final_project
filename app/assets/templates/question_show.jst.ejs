@@ -5,6 +5,15 @@
   <p><%= question.escape("content") %></p>
 </div>
 
+<div class="tags">Tags<br>
+  <% var tagsListString = question.escape('tag_list') %>
+  <% var tagArr = tagsListString.split(",") %>
+  <% for (var i = 0; i < tagArr.length; i++) { %>
+    <a href="javascript:void(0)"><%= tagArr[i] %></a>
+  <% } %>
+
+</div>
+
 <ul class="answers"><h4><%= question.answers().length %> Answers</h4></ul>
 
 <div class="new-answer"></div>

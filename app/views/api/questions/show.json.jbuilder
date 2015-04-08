@@ -1,8 +1,8 @@
-json.extract!(@question, :id, :title, :content, :user_id, :created_at)
+json.extract!(@question, :id, :title, :content, :user_id, :created_at, :tag_list)
 
 json.user @question.user.username
 
-
+json.tags @question.tags
 
 json.answers @question.answers do |answer|
   json.extract!(answer, :id, :content, :question_id, :user_id, :created_at)

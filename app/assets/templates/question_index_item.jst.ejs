@@ -7,6 +7,10 @@
   <p><%= question.escape("content") %></p>
 </div>
 
+<div class="tags">
+  <%= question.escape('tag_list') %>
+</div>
+
 <div class="question-asker">
   <p>Asked by: <%= question.get('user') %>
   <br>

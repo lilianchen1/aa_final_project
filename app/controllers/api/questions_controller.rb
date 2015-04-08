@@ -1,9 +1,10 @@
 class Api::QuestionsController < Api::ApiController
+  wrap_parameters :question, include: [:title, :content, :tag_list]
 
   def create
     @question = current_user.questions.new(question_params)
     if @question.save
-      render json: @question
+      render :show
     else
       render json: nil, status: :unprocessable_entity
     end
@@ -11,8 +12,6 @@ class Api::QuestionsController < Api::ApiController
 
   def show
     @question = Question.includes(:user, :answers).find(params[:id])
-    # render json: @post
-    #jbuilder with current_user
     render :show
   end
 
@@ -28,7 +27,7 @@ class Api::QuestionsController < Api::ApiController
   end
 
   def question_params
-    params[:question].permit(:title, :content)
+    params[:question].permit(:title, :content, :tag_list)
   end
 
 end
