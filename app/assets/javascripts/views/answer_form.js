@@ -20,10 +20,10 @@ NoPhenotype.Views.AnswerForm = Backbone.View.extend({
     newAnswer.save(attrs, {
       success: function() {
         this.collection.add(newAnswer);
+        var answerShow = new NoPhenotype.Views.AnswerShow({model: newAnswer});
+        $("ul.answers").append(answerShow.render().$el);
       }.bind(this)
     });
-    var answerShow = new NoPhenotype.Views.AnswerShow({model: newAnswer});
-    $("ul.answers").append(answerShow.render().$el);
     this.$("textarea").val("");
 
     // need to fix render so it shows username!!

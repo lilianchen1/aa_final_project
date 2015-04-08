@@ -3,5 +3,11 @@ NoPhenotype.Collections.Answers = Backbone.Collection.extend({
 
   model: NoPhenotype.Models.Answer,
 
-  // comparator: "created_at"
+  comparator: function(firstAnswer, secondAnswer) {
+    if (firstAnswer.get("created_at") < secondAnswer.get("created_at")) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
 });

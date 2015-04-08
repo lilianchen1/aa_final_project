@@ -15,7 +15,9 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     });
 
     var answerForm = new NoPhenotype.Views.AnswerForm({
-      model: new NoPhenotype.Models.Answer({ question_id: this.model.id }),
+      model: new NoPhenotype.Models.Answer({
+        question_id: this.model.id
+      }),
       collection: this.model.answers()
     });
 
