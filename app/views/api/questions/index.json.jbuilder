@@ -3,4 +3,5 @@ json.array! @questions do |question|
   json.user question.user.username
   json.answercount question.answers.count
   json.tags question.tags
+  json.vote_count (question.votes.where("value = 1").count - question.votes.where("value = -1").count)
 end

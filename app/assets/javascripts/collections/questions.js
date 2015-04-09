@@ -2,7 +2,13 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
   url: "/api/questions",
   model: NoPhenotype.Models.Question,
 
-  comparator: "created_at",
+  comparator: function(firstQuestion, secondQuestion) {
+    if (firstQuestion.get("created_at") < secondQuestion.get("created_at")) {
+      return 1;
+    } else {
+      return -1;
+    }
+  },
 
   getOrFetch: function(id) {
     if (this.get(id)) {

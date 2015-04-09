@@ -1,3 +1,7 @@
+<div class="voting">
+  <p>Vote: <%= question.get('vote_count') %></p>
+</div>
+
 <div class="question-show">
   <h3><%= question.escape("title") %></h3>
   <p class="user-info">Asked by: <%= question.get('user') %><br>

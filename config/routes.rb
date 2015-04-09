@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :questions, except: [:new, :edit]
     resources :answers, only: [:create, :destroy]
     resources :tags, only: [:show, :index]
+  
+    resources :votes, only: :create
   end
 end

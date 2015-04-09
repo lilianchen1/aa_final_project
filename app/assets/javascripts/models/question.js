@@ -17,6 +17,17 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
     return this._answers;
   },
 
+  votes: function() {
+    if (this._votes) {
+      return this._votes;
+    }
+
+    this._votes = new NoPhenotype.Collections.Votes([], {
+      question: this
+    });
+    return this._votes;
+  },
+
   parse: function(response) {
     if (response.answers) {
       this.answers().set(response.answers, {parse: true});
@@ -25,6 +36,11 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
     if (response.tags) {
       this.tags().set(response.tags, {parse: true});
       delete response.tags;
+    }
+
+    if (response.votes) {
+      this.votes().set(response.votes, {parse: true});
+      delete response.votes;
     }
     return response;
   }

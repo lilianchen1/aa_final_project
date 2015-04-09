@@ -4,8 +4,8 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers, dependent: :destroy
   has_many :taggings
-
   has_many :tags, through: :taggings, source: :tag
+  has_many :votes, :as => :votable
 
   def tag_list
     tags.map(&:name).join(", ")

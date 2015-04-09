@@ -2,7 +2,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
   template: JST["question_show"],
 
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change:vote_count", this.render);
     this.listenTo(this.model.answers(), "sync add", this.render);
   },
 
@@ -14,6 +14,15 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
   render: function() {
     var content = this.template({question: this.model});
     this.$el.html(content);
+
+    var voteForm = new NoPhenotype.Views.VoteForm({
+      model: new NoPhenotype.Models.Vote({
+        question_id: this.model.id,
+      }),
+      collection: this.model.votes(),
+      votableModel: this.model
+    });
+    this.$("div.voting").append(voteForm.render().$el);
 
     this.model.tags().each(function(tag) {
       var tagLink = "<a href='#/tags/" + tag.id + "' class='tags'>" + tag.get('name') + "</a>  ";
