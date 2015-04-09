@@ -1,2 +1,4 @@
 <p><%= answer.escape('content') %></p>
-<p>Answered by: <%= answer.get('user') %>
+<p class="user-info">Answered by: <%= answer.get('user') %><br>
+   Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
+</p>

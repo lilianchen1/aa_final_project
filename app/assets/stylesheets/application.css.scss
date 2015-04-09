@@ -84,13 +84,6 @@
        color: #0047B2;
      }
    }
-   .question-asker {
-     display: inline-block;
-     float: right;
-     margin-right: 20px;
-     padding: 5px;
-     background-color: #B5CDFF;
-   }
  }
 
  a.tags {
@@ -117,12 +110,6 @@
      border-top: 1px solid #ccc;
      border-bottom: 1px solid #ccc;
      overflow: auto;
-     p:last-of-type{
-       float: right;
-       margin-right: 20px;
-       padding: 5px;
-       background-color: #B5CDFF;
-     }
    }
  }
 
@@ -151,12 +138,11 @@ form button {
   h3 {
     border-bottom: 1px solid #ccc;
   }
-  p:first-of-type {
-    display: inline-block;
-    float: right;
-    margin-right: 20px;
-    padding: 5px;
-    background-color: #B5CDFF;
-  }
+}
 
+p.user-info {
+  float: right;
+  margin-right: 20px;
+  padding: 5px;
+  background-color: #B5CDFF;
 }
