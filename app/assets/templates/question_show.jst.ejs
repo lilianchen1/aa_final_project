@@ -9,6 +9,11 @@
 
 </div>
 
-<ul class="answers"><h4><%= question.answers().length %> Answers</h4></ul>
+<ul class="answers">
+  <h4>
+    <%= question.answers().length %>
+    <%= question.answers().length <= 1 ? 'Answer' : 'Answers' %>
+  </h4>
+</ul>
 
 <div class="new-answer"></div>

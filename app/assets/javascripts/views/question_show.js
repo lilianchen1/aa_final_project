@@ -5,6 +5,11 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click button": "reRender"
+  },
+
+
   render: function() {
     var content = this.template({question: this.model});
     this.$el.html(content);
