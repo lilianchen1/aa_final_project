@@ -15,8 +15,8 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 - [X] Create questions
 - [X] View list of questions (sorted by time of creation)
 - [X] Answer questions
-- [ ] Tag questions
-- [ ] View questions by tags
+- [X] Tag questions
+- [X] View questions by tags
 - [ ] Search for tags
 - [ ] Comment on answers
 - [ ] Upvote and downvote questions and answers

@@ -1,7 +1,7 @@
 <div class="question-attr">
   <%= question.get('answercount') %><br>
 
-  <%= question.get('answercount') <= 1 ? 'Answer' : 'Answers' %>
+  <%= question.get('answercount') === 1 ? 'Answer' : 'Answers' %>
 </div>
 
 <div class="title-content">
