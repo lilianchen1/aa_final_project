@@ -83,6 +83,16 @@
      display: inline-block;
      margin-right: 20px;
      float: right;
+     form div input:nth-child(2) {
+       background-color: #006EB8;
+       color: white;
+       padding: 5px;
+       border: none;
+       border-radius: 5px;
+       &:hover {
+         background-color: #3399FF;
+       }
+     }
 
    }
  }
@@ -96,8 +106,9 @@
    display: inline-block;
    background-color: #3E4141;
    color: white;
-   padding: 5px;
-   margin: 10px;
+   padding: 8px;
+   margin: 5px;
+   border-radius: 5px;
    &:hover {
      text-decoration: none;
      background-color: #3399FF;
@@ -138,6 +149,8 @@
      background-color: #2952CC;
      color: white;
      padding: 5px;
+     border-radius: 5px;
+     text-align: center;
    }
    .tags:first-child {
      margin-left: 100px;
