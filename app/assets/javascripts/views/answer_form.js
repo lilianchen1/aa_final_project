@@ -18,8 +18,9 @@ NoPhenotype.Views.AnswerForm = Backbone.View.extend({
     this.model.save(attrs, {
       success: function() {
         this.collection.add(this.model);
-        var answerShow = new NoPhenotype.Views.AnswerShow({model: this.model});
-        $("ul.answers").append(answerShow.render().$el);
+        // var answerShow = new NoPhenotype.Views.AnswerShow({model: this.model});
+        // $("ul.answers").append(answerShow.render().$el);
+        // don't need previous 2 lines because rerendering q show page upon adding answer
         this.model = new NoPhenotype.Models.Answer({
           question_id: this.model.get('question_id')
         });

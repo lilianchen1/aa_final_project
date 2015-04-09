@@ -146,6 +146,7 @@
  li.question-index-item {
    padding: 10px;
    border-top: 1px solid #ccc;
+   width: 100%;
    .question-attr {
      display: inline-block;
      background-color: #2952CC;
@@ -160,6 +161,7 @@
    .title-content {
      padding-left: 20px;
      display: inline-block;
+     width: 70%;
      h4 a {
        text-decoration: none;
        color: #0047B2;

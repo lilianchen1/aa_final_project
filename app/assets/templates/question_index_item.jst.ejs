@@ -6,7 +6,7 @@
 
 <div class="title-content">
   <h4><a href="#/questions/<%= question.id %>"><%= question.escape("title") %></a></h4>
-  <p><%= question.escape("content") %></p>
+  <p><%= question.escape("content").slice(0, 200) + "..." %></p>
 </div>
 
 
