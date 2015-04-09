@@ -11,10 +11,12 @@
   <% if !current_user.nil? %>
     <div class="nav-bar">
       <%= image_tag "NoPhenotype.png" %>
-      <div class="nav-bar-right"></div>
+      <div class="nav-bar-right">
+        <h3><%= current_user.username %></h3>
+        <%= button_to "Log Out", session_url, method: :delete %> 
+      </div>
     </div>
-    <h3><%= current_user.username %></h3>
-    <%= button_to "Log Out", session_url, method: :delete %>
+
   <% end %>
 
   <% if flash.now[:errors] %>

@@ -76,9 +76,11 @@
 
  .nav-bar {
 
-   background-color: #AED6FF;
+   background-color: white;
+   opacity: 0.5;
 
    .nav-bar-right {
+     display: inline-block;
      margin-right: 20px;
      float: right;
 
@@ -95,7 +97,7 @@
    background-color: #3E4141;
    color: white;
    padding: 5px;
-   margin: 5px;
+   margin: 10px;
    &:hover {
      text-decoration: none;
      background-color: #3399FF;
@@ -103,7 +105,10 @@
  }
 
  #content {
+   margin-top: 50px;
    padding: 40px;
+   background-color: white;
+   opacity: 0.8;
 
  }
 
