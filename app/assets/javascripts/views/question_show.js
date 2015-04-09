@@ -3,6 +3,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.answers(), "sync add", this.render);
   },
 
   events: {
@@ -18,7 +19,6 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
       var tagLink = "<a href='#/tags/" + tag.id + "' class='tags'>" + tag.get('name') + "</a>  ";
       this.$("div.tags").append(tagLink);
     }.bind(this));
-
     this.model.answers().each(function(answer) {
       var answerShow = new NoPhenotype.Views.AnswerShow({model: answer});
       this.$("ul.answers").append(answerShow.render().$el);
