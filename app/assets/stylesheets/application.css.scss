@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ .nav-bar {
+
+   .nav-bar-right {
+     margin-right: 20px;
+     float: right;
+
+   }
+ }
+
+
+
+ #backbone-header {
+   float: right;
+ }
+
+ #backbone-header a {
+   text-decoration: none;
+   display: inline-block;
+   background-color: #3E4141;
+   color: white;
+   padding: 5px;
+   margin: 5px;
+   &:hover {
+     text-decoration: none;
+     background-color: #3399FF;
+   }
+ }
+
+ #content {
+   padding: 40px;
+
+ }
+
+ form.new-question {
+  width: 400px;
+  p {
+    margin-top: 30px;
+  }
+  input, textarea {
+    margin-bottom: 10px;
+    width: 90%;
+  }
+  textarea {
+    height: 100px;
+  }
+ }
+
+ ul.questions-index {
+   list-style: none;
+ }
+
+ li.question-index-item {
+   padding: 10px;
+   border-top: 2px solid #ccc;
+   .question-attr {
+     display: inline-block;
+     background-color: #2952CC;
+     color: white;
+     padding: 5px;
+   }
+   .tags {
+     display: inline-block;
+     float: bottom;
+   }
+   .title-content {
+     padding-left: 20px;
+     display: inline-block;
+   }
+   .question-asker {
+     display: inline-block;
+     float: right;
+   }
+ }
+
+ a.tags {
+   text-decoration: none;
+   color: #303083;
+   background-color: #CAA6FF;
+   padding: 5px;
+   &:hover {
+     text-decoration:none;
+     background-color: #A285CC;
+   }
+ }
+
+ ul.tag-list {
+   list-style: none;
+   li {
+     margin-top: 20px;
+   }
+ }
+
+ ul.answers {
+   list-style: none;
+   li.answer {
+     border-top: 1px solid #ccc;
+     border-bottom: 1px solid #ccc;
+   }
+ }
+
+.new-answer form {
+  width: 400px;
+  textarea {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90%;
+    height: 100px;
+  }
+}
+
+form button {
+  padding: 10px;
+  background-color: #ccc;
+  border: 1px solid gray;
+  border-radius: 15px;
+  &:hover {
+    border: 1px solid #3399FF;
+    background-color: #3399FF;
+  }
+}
