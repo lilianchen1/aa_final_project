@@ -24,8 +24,6 @@
    }
  }
 
-
-
  #backbone-header {
    float: right;
  }
@@ -68,7 +66,7 @@
 
  li.question-index-item {
    padding: 10px;
-   border-top: 2px solid #ccc;
+   border-top: 1px solid #ccc;
    .question-attr {
      display: inline-block;
      background-color: #2952CC;
@@ -86,6 +84,9 @@
    .question-asker {
      display: inline-block;
      float: right;
+     margin-right: 20px;
+     padding: 5px;
+     background-color: #B5CDFF;
    }
  }
 
@@ -112,6 +113,13 @@
    li.answer {
      border-top: 1px solid #ccc;
      border-bottom: 1px solid #ccc;
+     overflow: auto;
+     p:last-of-type{
+       float: right;
+       margin-right: 20px;
+       padding: 5px;
+       background-color: #B5CDFF;
+     }
    }
  }
 
@@ -134,4 +142,18 @@ form button {
     border: 1px solid #3399FF;
     background-color: #3399FF;
   }
+}
+
+.question-show {
+  h3 {
+    border-bottom: 1px solid #ccc;
+  }
+  p:first-of-type {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    padding: 5px;
+    background-color: #B5CDFF;
+  }
+
 }
