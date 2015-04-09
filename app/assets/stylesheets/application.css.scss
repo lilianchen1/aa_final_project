@@ -80,6 +80,10 @@
    .title-content {
      padding-left: 20px;
      display: inline-block;
+     h4 a {
+       text-decoration: none;
+       color: #0047B2;
+     }
    }
    .question-asker {
      display: inline-block;
