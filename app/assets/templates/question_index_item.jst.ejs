@@ -1,5 +1,7 @@
 
-<div class="voting">
+<div class="voting" style="margin-top:5px">
+  <p style="text-align:center"><%= question.get('vote_count') %><br>
+  <%= question.get('vote_count') === 1 ? "Vote" : "Votes" %></p>
 </div>
 
 <div class="question-attr">
