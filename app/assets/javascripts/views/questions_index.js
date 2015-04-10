@@ -3,7 +3,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   template: JST["questions_index"],
 
   initialize: function() {
-    this.listenTo(this.collection, "sync add", this.render);
+    this.listenTo(this.collection, "sync add remove", this.render);
   },
 
   //render: make subview for index item

@@ -12,7 +12,7 @@ class Api::AnswersController < Api::ApiController
   end
 
   def destroy
-    @answer = Question.find(params[:id])
+    @answer = Answer.find(params[:id])
     @answer.destroy
     render json: @answer
   end

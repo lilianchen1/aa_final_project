@@ -13,6 +13,16 @@ NoPhenotype.Views.QuestionIndexItem = Backbone.View.extend({
     };
   },
 
+  events: {
+    "click button.delete-q": "deleteQuestion"
+  },
+
+  deleteQuestion: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.remove();
+  },
+
   render: function() {
     var content = this.template({
       question: this.model

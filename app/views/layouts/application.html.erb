@@ -9,6 +9,11 @@
 <body>
 
   <% if !current_user.nil? %>
+    <script type="text/javascript">
+      window.currentUser = {
+          "email" : "<%= current_user.email %>"
+      };
+    </script>
     <div class="nav-bar">
       <%= image_tag "NoPhenotype.png" %>
       <div class="nav-bar-right">

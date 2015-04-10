@@ -7,6 +7,16 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
     this.listenTo(this.model, "sync add change:vote_count", this.render);
   },
 
+  events: {
+    "click button.delete-q": "deleteQuestion"
+  },
+
+  deleteQuestion: function(event) {
+    event.preventDefault();
+    this.model.destroy();
+    this.remove();
+  },
+
   render: function() {
     var content = this.template({answer: this.model});
     this.$el.html(content);

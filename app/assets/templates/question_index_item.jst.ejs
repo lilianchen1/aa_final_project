@@ -1,3 +1,6 @@
+<% if (window.currentUser && window.currentUser.email === "yilingchen1@gmail.com") { %>
+  <button class="delete-q">delete</button>
+<% } %>
 
 <div class="voting" style="margin-top:5px">
   <p style="text-align:center"><%= question.get('vote_count') %><br>

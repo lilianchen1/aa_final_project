@@ -3,7 +3,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync change:vote_count", this.render);
-    this.listenTo(this.model.answers(), "sync add", this.render);
+    this.listenTo(this.model.answers(), "sync add remove", this.render);
   },
 
   events: {
