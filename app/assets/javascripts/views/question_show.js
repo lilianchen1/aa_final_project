@@ -4,6 +4,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "sync change:vote_count", this.render);
     this.listenTo(this.model.answers(), "sync add remove", this.render);
+    this.listenTo(this.model.votes(), "remove", this.render);
   },
 
   events: {
@@ -18,6 +19,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     var voteForm = new NoPhenotype.Views.VoteForm({
       model: new NoPhenotype.Models.Vote({
         question_id: this.model.id,
+        user_id: window.currentUser.current_user_id
       }),
       collection: this.model.votes(),
       votableModel: this.model
@@ -35,7 +37,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
 
     var answerForm = new NoPhenotype.Views.AnswerForm({
       model: new NoPhenotype.Models.Answer({
-        question_id: this.model.id
+        question_id: this.model.id,
       }),
       collection: this.model.answers()
     });

@@ -3,11 +3,19 @@ class Api::VotesController < Api::ApiController
   def create
     @votable = find_votable
     @vote = @votable.votes.build(vote_params)
+    @vote.user_id = current_user.id
     if @vote.save
-      render json: @vote
+      render :show
     else
       render json: @vote.errors.full_messages, status: :unprocessable_entity
     end
+  end
+
+
+  def destroy
+    @vote = Vote.find(params[:id])
+    @vote.destroy
+    render json: @vote
   end
 
 

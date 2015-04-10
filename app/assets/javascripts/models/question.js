@@ -22,7 +22,7 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
       return this._votes;
     }
 
-    this._votes = new NoPhenotype.Collections.Votes([], {
+    this._votes = new NoPhenotype.Collections.Votes({
       question: this
     });
     return this._votes;

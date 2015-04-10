@@ -5,6 +5,7 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.model, "sync add change:vote_count", this.render);
+    this.listenTo(this.model.votes(), "remove", this.render);
   },
 
   events: {
@@ -23,6 +24,7 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
     var voteForm = new NoPhenotype.Views.VoteForm({
       model: new NoPhenotype.Models.Vote({
         answer_id: this.model.id,
+        user_id: window.currentUser.current_user_id
       }),
       collection: this.model.votes(),
       votableModel: this.model
