@@ -226,16 +226,17 @@ form button {
   }
 }
 
-p.user-info {
-  float: right;
+.question-index-item > * {
+  float: left;
+}
+
+.user-info {
   margin-right: 20px;
   padding: 5px;
   background-color: #B5CDFF;
   border-radius: 5px;
-}
-
-div div.tags {
-  margin-left: 150px;
+  float: right;
+  display: inline-block;
 }
 
 .voting {
