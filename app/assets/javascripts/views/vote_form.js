@@ -13,7 +13,8 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
 
   render: function() {
     var content = this.template({
-      vote: this.model
+      vote: this.model,
+      votableModel: this.votableModel
     });
     this.$el.html(content);
     var voteShow = new NoPhenotype.Views.VoteShow({model: this.model});

@@ -148,10 +148,6 @@
    border-top: 1px solid #ccc;
    width: 100%;
    overflow: auto;
-   .voting {
-     display: inline-block;
-     width: 10%;
-   }
 
    .question-attr {
      display: inline-block;
@@ -236,4 +232,38 @@ p.user-info {
   padding: 5px;
   background-color: #B5CDFF;
   border-radius: 5px;
+}
+
+div div.tags {
+  margin-left: 150px;
+}
+
+.voting {
+  display: inline-block;
+  width: 10%;
+}
+
+button.upvote, button.downvote {
+    padding: 3px;
+    border-radius: 20px;
+}
+
+button.upvote {
+  width: 90%;
+  background-color: #3399FF;
+  &:hover {
+    background-color: #0066FF;
+  }
+}
+
+button.downvote {
+  width: 90%;
+  background-color: #FF4747;
+  &:hover {
+    background-color: #B23232;
+  }
+}
+
+form.vote {
+  text-align: center;
 }

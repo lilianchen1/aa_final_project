@@ -1,8 +1,7 @@
 <div class="voting">
-  <p>Vote: <%= answer.get('vote_count') %></p>
 </div>
 
-<p><%= answer.escape('content') %></p>
+<p style="display:inline-block; width: 65%;"><%= answer.escape('content') %></p>
 <p class="user-info">Answered by: <%= answer.get('user') %><br>
    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
 </p>
