@@ -77,22 +77,30 @@
 
 
  .nav-bar {
-
+   overflow: auto;
    background-color: white;
    opacity: 0.5;
+
+   img {
+     float: left;
+   }
 
    .nav-bar-right {
      display: inline-block;
      margin-right: 20px;
      float: right;
+     form {
+       text-align: center;
+     }
      form div input:nth-child(2) {
-       background-color: #006EB8;
+       background-color: #5D6B95;
        color: white;
        padding: 5px;
+       width: 80%;
        border: none;
        border-radius: 5px;
        &:hover {
-         background-color: #3399FF;
+         background-color: black;
        }
      }
 
@@ -101,12 +109,15 @@
 
  #backbone-header {
    float: right;
+   width: 40%;
+   margin-top: 60px;
  }
 
  #backbone-header a {
    text-decoration: none;
    display: inline-block;
-   background-color: #3E4141;
+  //  background-color: #3E4141;
+   background-color: black;
    color: white;
    padding: 8px;
    margin: 5px;
@@ -118,7 +129,7 @@
  }
 
  #content {
-   margin-top: 50px;
+   margin-top: 10px;
    padding: 40px;
    background-color: white;
    opacity: 0.8;
@@ -161,13 +172,17 @@
      margin-left: 200px;
    }
    .title-content {
+     margin-top: -20px;
      padding-left: 20px;
      display: inline-block;
-     width: 65%;
+     width: 60%;
      h4 a {
        text-decoration: none;
        color: #0047B2;
      }
+   }
+   .tags {
+     width: 80%;
    }
  }
 
@@ -237,6 +252,7 @@ form button {
   border-radius: 5px;
   float: right;
   display: inline-block;
+  max-width: 150px;
 }
 
 .voting {
