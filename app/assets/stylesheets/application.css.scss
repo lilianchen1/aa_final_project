@@ -113,7 +113,7 @@
    border-radius: 5px;
    &:hover {
      text-decoration: none;
-     background-color: #3399FF;
+     background-color: #6C9A6C;
    }
  }
 
@@ -173,13 +173,13 @@
 
  a.tags {
    text-decoration: none;
-   color: #303083;
-   background-color: #CAA6FF;
+   color: #003300;
+   background-color: #9999A9;
    padding: 5px;
    border-radius: 5px;
    &:hover {
      text-decoration:none;
-     background-color: #A285CC;
+     background-color: #CAA6FF;
    }
  }
 
@@ -212,11 +212,11 @@
 form button {
   padding: 10px;
   background-color: #ccc;
-  border: 1px solid gray;
+  border: 1px #ccc;
   border-radius: 15px;
   &:hover {
-    border: 1px solid #3399FF;
-    background-color: #3399FF;
+    // border: 1px solid #3399FF;
+    background-color: #6C9A6C;
   }
 }
 
@@ -252,7 +252,7 @@ button.upvote, button.downvote {
 
 button.upvote {
   width: 90%;
-  background-color: #4D704D;
+  background-color: #9999A9;
   &:hover {
     background-color: #003300;
   }
@@ -260,7 +260,7 @@ button.upvote {
 
 button.downvote {
   width: 90%;
-  background-color: #003300;
+  background-color: #9999A9;
   &:hover {
     background-color: #4D704D;
   }
