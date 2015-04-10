@@ -33,7 +33,7 @@
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-
+   width: 400px;
 
    h2, h3 {
      text-align: center;
@@ -45,7 +45,7 @@
 
    form {
      width: 100%;
-     p {
+     div.info {
        font-size: 1.2em;
        font-weight: 600;
        text-align: center;

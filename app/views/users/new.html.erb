@@ -1,20 +1,27 @@
 <div class="new-main">
   <div class="new-form">
+    <ul>
+      <% if flash.now[:errors] %>
+        <% flash.now[:errors].each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      <% end %>
+    </ul>
     <%= image_tag "NoPhenotype.png", width:'100%' %>
     <!-- <h2>Sign Up</h2> -->
     <form action="/users" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label>
-        <p>Username</p>
+        <div class="info">Username</div>
         <input type="text" name="user[username]">
       </label>
       <br>
       <label>
-        <p>Email</p>
+        <div class="info">Email</div>
         <input type="text" name="user[email]">
       </label>
       <br>
-      <label><p>Password</p>
+      <label><div class="info">Password</div>
         <input type="password" name="user[password]">
       </label>
       <br>

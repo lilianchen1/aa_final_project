@@ -1,5 +1,11 @@
 <div class="new-main">
   <div class="new-form">
+    <% if flash.now[:errors] %>
+      <% flash.now[:errors].each do |error| %>
+        <%= error %>
+      <% end %>
+    <% end %>
+      
     <%= image_tag "NoPhenotype.png", width:'100%' %>
     <!-- <h2>Log In</h2> -->
     <h3>New User? <a href="/users/new" class="signup-link">Sign up!</a></h3>
