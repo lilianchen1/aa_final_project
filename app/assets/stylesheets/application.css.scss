@@ -151,7 +151,7 @@
 
    .question-attr {
      display: inline-block;
-     background-color: #2952CC;
+     background-color: #3E4141;
      color: white;
      padding: 5px;
      border-radius: 5px;
@@ -247,21 +247,22 @@ form button {
 button.upvote, button.downvote {
     padding: 3px;
     border-radius: 20px;
+    color: white;
 }
 
 button.upvote {
   width: 90%;
-  background-color: #3399FF;
+  background-color: #4D704D;
   &:hover {
-    background-color: #0066FF;
+    background-color: #003300;
   }
 }
 
 button.downvote {
   width: 90%;
-  background-color: #FF4747;
+  background-color: #003300;
   &:hover {
-    background-color: #B23232;
+    background-color: #4D704D;
   }
 }
 
