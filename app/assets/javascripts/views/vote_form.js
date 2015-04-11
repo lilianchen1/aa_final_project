@@ -5,7 +5,7 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
 
   initialize: function (options) {
     this.votableModel = options.votableModel;
-    this.listenTo(this.model, "sync add remove", this.render);
+    this.listenTo(this.model, "sync change:value add remove", this.render);
   },
 
   events: {

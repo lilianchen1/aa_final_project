@@ -33,6 +33,7 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
       this.answers().set(response.answers, {parse: true});
       delete response.answers;
     }
+
     if (response.tags) {
       this.tags().set(response.tags, {parse: true});
       delete response.tags;
@@ -42,6 +43,10 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
       this.votes().set(response.votes, {parse: true});
       delete response.votes;
     }
+
+    // if (response.current_user_vote) {
+    //
+    // }
     return response;
   }
 });

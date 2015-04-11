@@ -4,8 +4,11 @@ json.user @question.user.username
 json.vote_count (@question.votes.where("value = 1").count - @question.votes.where("value = -1").count)
 
 json.votes @question.votes do |vote|
-  json.extract!(vote, :id, :user_id, :votable_type, :votable_id)
+  json.extract!(vote, :id, :value, :user_id, :votable_type, :votable_id)
 end
+
+# json.current_user_vote
+json.current_user_vote @question.votes.find_by(user_id: current_user.id)
 
 json.tags @question.tags
 

@@ -124,7 +124,7 @@
    border-radius: 5px;
    &:hover {
      text-decoration: none;
-     background-color: #6C9A6C;
+     background-color: #003300;
    }
  }
 
@@ -134,6 +134,13 @@
    background-color: white;
    opacity: 0.8;
 
+ }
+
+ .rails-user {
+   margin-top: 10px;
+   padding: 40px;
+   background-color: white;
+   opacity: 0.8;
  }
 
  form.new-question {
@@ -287,4 +294,22 @@ button.downvote {
 
 form.vote {
   text-align: center;
+}
+
+ul.users-list {
+  list-style: none;
+  li {
+    margin-top: 20px;
+    a {
+      text-decoration: none;
+      font-size: 1.2em;
+      background-color: #2A2A32;
+      color: white;
+      border-radius: 5px;
+      padding: 5px;
+      &:hover {
+        background-color: #003300;
+      }
+    }
+  }
 }

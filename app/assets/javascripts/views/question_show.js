@@ -7,20 +7,19 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     this.listenTo(this.model.votes(), "remove", this.render);
   },
 
-  events: {
-    "click button": "reRender"
-  },
-
-
   render: function() {
     var content = this.template({question: this.model});
     this.$el.html(content);
+
+    // debugger
 
     var voteForm = new NoPhenotype.Views.VoteForm({
       model: new NoPhenotype.Models.Vote({
         question_id: this.model.id,
         user_id: window.currentUser.current_user_id
       }),
+      // have vote obj associated with question rather than making new model
+      // model: this.model.get('current_user_vote'),
       collection: this.model.votes(),
       votableModel: this.model
     });

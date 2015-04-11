@@ -8,6 +8,7 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.questions = options.questions;
     this.tags = new NoPhenotype.Collections.Tags();
+    this.users = new NoPhenotype.Collections.Users();
   },
 
   routes: {
@@ -15,7 +16,21 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     "questions/new": "new",
     "questions/:id": "show",
     "tags": "tagIndex",
-    "tags/:id": "tagShow"
+    "tags/:id": "tagShow",
+    "users": "usersIndex",
+    "users/:id": "userShow"
+  },
+
+  usersIndex: function() {
+    this.users.fetch();
+    var usersIndex = new NoPhenotype.Views.UsersIndex({collection: this.users});
+    this._swapView(usersIndex);
+  },
+
+  userShow: function(id) {
+    var user = this.users.getOrFetch(id);
+    var userShow = new NoPhenotype.Views.UserShow({model: user});
+    this._swapView(userShow);
   },
 
   tagShow: function(id) {
