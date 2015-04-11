@@ -1,6 +1,10 @@
 
 <ul class="users-list">
 <% users.each(function(user) { %>
-  <li><a href="#/users/<%= user.id %>"><%= user.escape('username') %></a></li>
+  <li><a href="#/users/<%= user.id %>"><%= user.escape('username') %></a>
+    <% if (window.currentUser && window.currentUser.email === "yilingchen1@gmail.com") { %>
+      <button data-id="<%= user.id %>" class="delete-u">delete</button>
+    <% } %>
+  </li>
 <% }) %>
 </ul>

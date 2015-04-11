@@ -10,4 +10,10 @@ class Api::UsersController < Api::ApiController
     render :show
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    render @user
+  end
+
 end
