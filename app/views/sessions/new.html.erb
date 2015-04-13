@@ -7,22 +7,33 @@
     <% end %>
 
     <%= image_tag "NoPhenotype.png", width:'100%' %>
-    <!-- <h2>Log In</h2> -->
     <h3>New User? <a href="/users/new" class="signup-link">Sign up!</a></h3>
     <form action="/session" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label>
-        <!-- <p>Email</p> -->
-        <input type="text" name="user[email]" value="guest@example.com">
+        <div class="info">Email</div>
+        <input type="text" name="user[email]">
       </label>
       <br>
       <label>
-        <!-- <p>Password</p> -->
-        <input type="password" name="user[password]" value="example">
+        <div class="info">Password</div>
+        <input type="password" name="user[password]">
       </label>
       <br>
-      <input type="submit" id="new" value="Log In">
-      <input type="submit" id="new" value="Log in as guest">
+      <input type="submit" class="new" value="Log In">
+    </form>
+
+    <form action="/session" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <label>
+        <input type="hidden" name="user[email]" value="guest@example.com">
+      </label>
+      <br>
+      <label>
+        <input type="hidden" name="user[password]" value="example">
+      </label>
+      <br>
+      <input type="submit" class="guest-login" value="Log in as guest">
     </form>
   </div>
 </div>

@@ -14,7 +14,3 @@ window.NoPhenotype = {
     Backbone.history.start();
   }
 };
-
-$(document).ready(function(){
-  NoPhenotype.initialize();
-});

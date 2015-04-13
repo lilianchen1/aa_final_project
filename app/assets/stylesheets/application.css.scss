@@ -55,7 +55,7 @@
        width: 100%;
        height: 30px;
      }
-     input#new {
+     input.new, input.guest-login {
        background-color: #69A5CC;
        border: 2px solid #69A5CC;
        border-radius :10px;
@@ -63,6 +63,9 @@
        &:hover {
          background-color: #99CCFF;
        }
+     }
+     input.guest-login {
+       margin-top: -10px;
      }
    }
  }
