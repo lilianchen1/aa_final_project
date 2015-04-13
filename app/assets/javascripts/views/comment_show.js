@@ -1,5 +1,6 @@
 NoPhenotype.Views.CommentShow = Backbone.View.extend({
   template: JST["comment_show"],
+  tagName: "li",
   className: "comment-content",
 
   // initialize: function() {

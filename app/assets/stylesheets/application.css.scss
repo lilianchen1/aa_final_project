@@ -339,6 +339,7 @@ button.new-comment, button.new-answer-comment {
   background-color: white;
   border: none;
   color: gray;
+  margin-left: 100px;
   &:hover {
     cursor: pointer;
   }
@@ -352,4 +353,24 @@ button.add-comment {
 a.comment-user-info {
   text-decoration: none;
   color: #0047B2;
+}
+
+form.new-comment {
+  margin-left: 100px;
+}
+
+ul.q-comments, ul.a-comments {
+  border-top: 1px solid #A6A6AA;
+  margin-left: 100px;
+  margin-top: 20px;
+  list-style: none;
+  li {
+    margin-top: 10px;
+    margin-left: -20px;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+textarea.comment-form {
+  width: 60%;
 }

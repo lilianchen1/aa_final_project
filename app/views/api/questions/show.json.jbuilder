@@ -15,9 +15,10 @@ json.answers @question.answers do |answer|
   json.vote_count (answer.votes.where("value = 1").count - answer.votes.where("value = -1").count)
   json.votes answer.votes
 
-#   # json.comments answer.comments do |comment|
-#   #   json.extract!(comment, :id, :content, :answer_id, :user_id)
-  # end
+  json.comments answer.comments do |comment|
+  json.extract!(comment, :id, :content, :commentable_id, :commentable_type, :user_id, :created_at)
+  json.user comment.user.username
+  end
 end
 
 json.comments @question.comments do |comment|
