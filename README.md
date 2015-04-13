@@ -69,8 +69,6 @@ Show page will have questions tagged with that particular tag. Clicking on quest
 Continue working on question index and show pages so that tags for that question
 are displayed.
 
-Implement search by tag name.
-
 
 ### Phase 4: Comments (1 days)
 Build Comment(s) MVC in both the front-end and back-end.

@@ -1,9 +1,5 @@
 <h2>Tags</h2>
 
-<label>Type to find tags:
-  <input type="text" name="name" class="tag-search">
-</label>
-
 <ul class="tag-list">
   <% tags.each(function(tag) { %>
     <% if (tag.get('questions_count') > 0) { %>
