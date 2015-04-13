@@ -10,8 +10,9 @@ end
 json.tags @question.tags
 
 json.answers @question.answers do |answer|
-  json.extract!(answer, :id, :content, :question_id, :user_id, :created_at)
+  json.extract!(answer, :id, :content, :question_id, :user_id, :created_at, :accepted)
   json.user answer.user.username
+  json.question answer.question
   json.vote_count (answer.votes.where("value = 1").count - answer.votes.where("value = -1").count)
   json.votes answer.votes
 

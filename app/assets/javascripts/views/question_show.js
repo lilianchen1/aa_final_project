@@ -54,7 +54,8 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     }.bind(this));
 
     this.model.answers().each(function(answer) {
-      var answerShow = new NoPhenotype.Views.AnswerShow({model: answer});
+      var answerShow = new NoPhenotype.Views.AnswerShow({
+        model: answer});
       this.$("ul.answers").append(answerShow.render().$el);
     }.bind(this));
 

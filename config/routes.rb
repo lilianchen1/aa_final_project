@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :questions, except: [:new, :edit]
-    resources :answers, only: [:create, :destroy]
+    resources :answers, only: [:create, :destroy, :update]
     resources :tags, only: [:show, :index]
     resources :users, only: [:show, :index, :destroy]
     resources :votes, only: [:create, :destroy]

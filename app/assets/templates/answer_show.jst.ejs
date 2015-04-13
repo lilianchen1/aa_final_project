@@ -2,6 +2,16 @@
   <button class="delete-q">delete</button>
 <% } %>
 
+<% if (window.currentUser && parseInt(window.currentUser.current_user_id) === question.user_id) { %>
+  <button class="accept-answer">
+    <% if (answer.escape('accepted') === "false") { %>
+      accept answer
+    <% } else { %>
+      unaccept answer
+    <% } %>
+  </button>
+<% } %>
+
 
 <div class="voting">
 </div>
@@ -10,6 +20,11 @@
   <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a><br>
    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
 </p>
+
+<% if (answer.escape('accepted') === "true") { %>
+  <img src="http://www.newmommymedia.com/wp-content/uploads/2012/06/TBG-green-checkmark.png"
+    alt="Checked!"/>
+<% } %>
 
 <div style="display:inline-block; width: 65%; margin: 20px;">
   <%= answer.escape('content') %>

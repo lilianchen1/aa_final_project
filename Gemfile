@@ -18,6 +18,7 @@ group :doc do
 end
 
 group :development do
+  gem 'byebug'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'

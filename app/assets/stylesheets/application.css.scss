@@ -82,7 +82,7 @@
  .nav-bar {
    overflow: auto;
    background-color: white;
-   opacity: 0.5;
+   opacity: 0.6;
 
    img {
      float: left;
@@ -135,7 +135,7 @@
    margin-top: 10px;
    padding: 40px;
    background-color: white;
-   opacity: 0.8;
+   opacity: 0.9;
 
  }
 
@@ -222,6 +222,9 @@
      border-top: 1px solid #ccc;
      border-bottom: 1px solid #ccc;
      overflow: auto;
+     img {
+       float: left;
+     }
    }
  }
 

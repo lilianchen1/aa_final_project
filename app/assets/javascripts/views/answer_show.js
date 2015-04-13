@@ -6,12 +6,24 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "sync add change:vote_count", this.render);
     this.listenTo(this.model.votes(), "remove", this.render);
-    this.listenTo(this.model.comments(), "sync add remove", this.render);
+    this.listenTo(this.model.comments(), "add remove", this.render);
   },
 
   events: {
     "click button.delete-q": "deleteAnswer",
-    "click button.new-answer-comment": "renderCommentForm"
+    "click button.new-answer-comment": "renderCommentForm",
+    "click button.accept-answer": "updateAnswer"
+  },
+
+  updateAnswer: function(event) {
+    event.preventDefault();
+    if (this.model.get('accepted') === false) {
+      this.model.set("accepted", true);
+    } else {
+      this.model.set("accepted", false)
+    }
+
+    this.model.save();
   },
 
   renderCommentForm: function(event) {
@@ -36,7 +48,11 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template({answer: this.model});
+    var question1 = this.model.get('question');
+    var content = this.template({
+      answer: this.model,
+      question: question1
+    });
     this.$el.html(content);
     var voteModel;
     var userVoteArr = this.model.votes().where({user_id: parseInt(window.currentUser.current_user_id)});

@@ -17,6 +17,16 @@ class Api::AnswersController < Api::ApiController
     render json: @answer
   end
 
+  def update
+    # need for updating accepted boolean
+    @answer = Answer.find(params[:id])
+    if @answer.update(answer_params)
+      render :show
+    else
+      render json: @answer.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def current_question
@@ -29,7 +39,7 @@ class Api::AnswersController < Api::ApiController
   end
 
   def answer_params
-    params[:answer].permit(:content, :user_id, :question_id)
+    params[:answer].permit(:content, :user_id, :question_id, :accepted)
   end
 
 end
