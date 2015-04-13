@@ -19,8 +19,8 @@
 </div>
 
 
-<div class="user-info">Asked by: <%= question.get('user') %>
-<br>
+<div class="user-info">Asked by:
+  <a href="#/users/<%= question.escape('user_id') %>"><%= question.get('user') %></a><br>
   Asked: <%= question.escape("created_at").slice(0, 10) %>
 </div>
 

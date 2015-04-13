@@ -9,6 +9,7 @@
 <div style="display:inline-block; width: 65%; margin: 20px;">
   <%= answer.escape('content') %>
 </div>
-<p class="user-info">Answered by: <%= answer.get('user') %><br>
+<p class="user-info">Answered by:
+  <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a><br>
    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
 </p>

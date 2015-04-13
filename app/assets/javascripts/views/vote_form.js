@@ -18,8 +18,7 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
       votableModel: this.votableModel,
     });
     this.$el.html(content);
-    // var voteShow = new NoPhenotype.Views.VoteShow({model: this.model});
-    // voteShow.render().$el.insertBefore("button.downvote");
+  
     return this;
   },
 
@@ -48,14 +47,25 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
         deleteVotes.push(v);
       }
     });
+
     if (deleteVotes.length >= 1) {
+      // debugger
+      // if (deleteVotes[0].get('value') !== vote.get('value')) {
+      //   vote.save({}, {
+      //     success: function() {
+      //       this.collection.add(vote);
+      //     }.bind(this),
+      //   });
+      // }
+
       for (var i = 0; i < deleteVotes.length; i++) {
         deleteVotes[i].destroy();
       }
-      var vc1 = votableType.votes().length;
-      votableType.set('vote_count', vc1);
+      var vc = votableType.votes().length;
+      votableType.set('vote_count', vc);
       return;
     }
+
     else {
       vote.save({}, {
         success: function() {
