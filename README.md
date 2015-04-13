@@ -17,12 +17,12 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 - [X] Answer questions
 - [X] Tag questions
 - [X] View questions by tags
-- [ ] Search for tags
-- [ ] Comment on answers
-- [ ] Upvote and downvote questions and answers
-- [ ] View their own profile page
-- [ ] View other users' profile page
-- [ ] Search for other users
+- [X] Comment on answers and questions (polymorphic association)
+- [X] Upvote and downvote questions and answers
+- [X] View their own profile page
+- [X] View other users' profile page
+- [ ] Infinite Scroll
+- [ ] Set up gravatar for users' picture
 
 
 ## Design Docs
@@ -74,10 +74,10 @@ Implement search by tag name.
 
 ### Phase 4: Comments (1 days)
 Build Comment(s) MVC in both the front-end and back-end.
-(C = controller in the back-end and collection in the front-end). Build
-associations between Comment and Answer. By the end of this phase, users
-will be able to comment on answers. The idea is for comments to be
-displayed on answer show view (which is itself a subview of question show page).
+(C = controller in the back-end and collection in the front-end). Use polymorphic
+association.
+By the end of this phase, users will be able to comment on answers and questions.
+The idea is for comments to be displayed on answer show view (which is itself a subview of question show page) and question show view.
 
 
 ### Phase 5: Upvote/downvote (2 days)
@@ -92,3 +92,4 @@ Basic profile page (picture, username, short bio)
 ### Bonus Features
 - [ ] User Profile Page - Display list of questions with link to question by title
 - [ ] Users' index page and search for users by username
+- [ ] Search for tags
