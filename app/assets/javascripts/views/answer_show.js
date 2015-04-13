@@ -25,11 +25,8 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
       }),
       collection: this.model.comments(),
       commentableModel: this.model,
-      // commentable_id: this.model.id,
-      // commentable_type: "Answer",
-      // user_id: parseInt(window.currentUser.current_user_id)
     });
-    (commentForm.render().$el).insertBefore("button#" + this.model.id);
+    this.$("div#"+ this.model.id).append(commentForm.render().$el);
   },
 
   deleteAnswer: function(event) {

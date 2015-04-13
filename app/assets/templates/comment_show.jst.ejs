@@ -1,4 +1,4 @@
 <%= comment.escape('content') %>
 
-<a href="#/users/<%= comment.escape('user_id') %>"><%= comment.get('user') %></a>
+<a class="comment-user-info" href="#/users/<%= comment.escape('user_id') %>"><%= comment.get('user') %></a>
    <%= (comment.escape("created_at")).slice(0, 10) %>
