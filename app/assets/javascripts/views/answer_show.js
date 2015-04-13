@@ -21,11 +21,19 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   render: function() {
     var content = this.template({answer: this.model});
     this.$el.html(content);
+    var voteModel;
+    var userVoteArr = this.model.votes().where({user_id: parseInt(window.currentUser.current_user_id)});
+    if (userVoteArr.length !== 0) {
+      voteModel = userVoteArr.shift();
+    } else {
+      voteModel = new NoPhenotype.Models.Vote({
+                    answer_id: this.model.id,
+                    user_id: parseInt(window.currentUser.current_user_id)
+            });
+    }
+
     var voteForm = new NoPhenotype.Views.VoteForm({
-      model: new NoPhenotype.Models.Vote({
-        answer_id: this.model.id,
-        user_id: window.currentUser.current_user_id
-      }),
+      model: voteModel,
       collection: this.model.votes(),
       votableModel: this.model
     });

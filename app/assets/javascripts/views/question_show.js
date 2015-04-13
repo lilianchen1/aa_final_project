@@ -11,15 +11,18 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
     var content = this.template({question: this.model});
     this.$el.html(content);
 
-    // debugger
-
+    var voteModel;
+    var userVoteArr = this.model.votes().where({user_id: parseInt(window.currentUser.current_user_id)});
+    if (userVoteArr.length !== 0) {
+      voteModel = userVoteArr.shift();
+    } else {
+      voteModel = new NoPhenotype.Models.Vote({
+                    question_id: this.model.id,
+                    user_id: parseInt(window.currentUser.current_user_id)
+            });
+    }
     var voteForm = new NoPhenotype.Views.VoteForm({
-      model: new NoPhenotype.Models.Vote({
-        question_id: this.model.id,
-        user_id: window.currentUser.current_user_id
-      }),
-      // have vote obj associated with question rather than making new model
-      // model: this.model.get('current_user_vote'),
+      model: voteModel,
       collection: this.model.votes(),
       votableModel: this.model
     });

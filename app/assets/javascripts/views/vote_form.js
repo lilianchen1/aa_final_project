@@ -40,7 +40,7 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
     vote.set("votable_type", votableType.attributes.title ? "Question" : "Answer");
     vote.set("user_id", parseInt(window.currentUser.current_user_id));
     var deleteVotes = [];
-    // after setting up user model in backbone, can do currentUser.votes().each...
+
     votableType.votes().each(function(v) {
       if (v.get('votable_id') === vote.get('votable_id') &&
           v.get('votable_type') === vote.get('votable_type') &&
@@ -48,15 +48,15 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
         deleteVotes.push(v);
       }
     });
-
     if (deleteVotes.length >= 1) {
       for (var i = 0; i < deleteVotes.length; i++) {
         deleteVotes[i].destroy();
       }
-      var vc = votableType.votes().length;
-      votableType.set('vote_count', vc);
+      var vc1 = votableType.votes().length;
+      votableType.set('vote_count', vc1);
       return;
-    } else {
+    }
+    else {
       vote.save({}, {
         success: function() {
           this.collection.add(vote);

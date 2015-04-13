@@ -270,7 +270,7 @@ form button {
   margin-top: 5px;
 }
 
-button.upvote, button.downvote {
+button.upvote, button.downvote, button.upvote-selected, button.downvote-selected {
     padding: 3px;
     border-radius: 20px;
     color: white;
@@ -282,6 +282,16 @@ button.upvote {
   &:hover {
     background-color: #003300;
   }
+}
+
+button.upvote-selected {
+  width: 90%;
+  background-color: #003300;
+}
+
+button.downvote-selected {
+  width: 90%;
+  background-color: #4D704D;
 }
 
 button.downvote {
