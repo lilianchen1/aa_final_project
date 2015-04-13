@@ -6,13 +6,33 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   initialize: function() {
     this.listenTo(this.model, "sync add change:vote_count", this.render);
     this.listenTo(this.model.votes(), "remove", this.render);
+    this.listenTo(this.model.comments(), "sync add remove", this.render);
   },
 
   events: {
-    "click button.delete-q": "deleteQuestion"
+    "click button.delete-q": "deleteAnswer",
+    "click button.new-answer-comment": "renderCommentForm"
   },
 
-  deleteQuestion: function(event) {
+  renderCommentForm: function(event) {
+    event.preventDefault();
+    var commentForm = new NoPhenotype.Views.CommentForm({
+      model: new NoPhenotype.Models.Comment({
+        user_id: parseInt(window.currentUser.current_user_id),
+        answer_id: this.model.id,
+        commentable_id: this.model.id,
+        commentable_type: "Answer"
+      }),
+      collection: this.model.comments(),
+      commentableModel: this.model,
+      // commentable_id: this.model.id,
+      // commentable_type: "Answer",
+      // user_id: parseInt(window.currentUser.current_user_id)
+    });
+    (commentForm.render().$el).insertBefore("button#" + this.model.id);
+  },
+
+  deleteAnswer: function(event) {
     event.preventDefault();
     this.model.destroy();
     this.remove();
@@ -38,6 +58,14 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
       votableModel: this.model
     });
     this.$("div.voting").append(voteForm.render().$el);
+
+    this.model.comments().each(function(comment) {
+      var commentShow = new NoPhenotype.Views.CommentShow({
+        model: comment
+      });
+      this.$("ul.a-comments").append(commentShow.render().$el);
+    }.bind(this));
+
     return this;
   }
 });

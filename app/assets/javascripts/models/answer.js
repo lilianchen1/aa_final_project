@@ -1,13 +1,15 @@
 NoPhenotype.Models.Answer = Backbone.Model.extend({
   urlRoot: "/api/answers",
 
-  // comments: function() {
-  //
-  // },
-  //
-  // parse: function(response) {
-  //
-  // }
+  comments: function() {
+    if (this._comments) {
+      return this._comments;
+    }
+    this._comments = new NoPhenotype.Collections.Comments({
+      question: this
+    });
+    return this._comments;
+  },
 
   votes: function() {
     if (this._votes) {
@@ -24,6 +26,11 @@ NoPhenotype.Models.Answer = Backbone.Model.extend({
     if (response.votes) {
       this.votes().set(response.votes, {parse: true});
       delete response.votes;
+    }
+
+    if (response.comments) {
+      this.comments().set(response.comments, {parse: true});
+      delete response.comments;
     }
     return response;
   }

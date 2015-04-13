@@ -13,3 +13,5 @@
   <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a><br>
    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
 </p>
+<ul class="a-comments"></ul>
+<button class="new-answer-comment" id="<%= answer.id %>">add comment</button>

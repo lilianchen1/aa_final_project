@@ -28,6 +28,16 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
     return this._votes;
   },
 
+  comments: function() {
+    if (this._comments) {
+      return this._comments;
+    }
+    this._comments = new NoPhenotype.Collections.Comments({
+      question: this
+    });
+    return this._comments;
+  },
+
   parse: function(response) {
     if (response.answers) {
       this.answers().set(response.answers, {parse: true});
@@ -44,9 +54,10 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
       delete response.votes;
     }
 
-    // if (response.current_user_vote) {
-    //
-    // }
+    if (response.comments) {
+      this.comments().set(response.comments, {parse: true});
+      delete response.comments;
+    }
     return response;
   }
 });

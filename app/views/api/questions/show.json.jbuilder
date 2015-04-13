@@ -7,9 +7,6 @@ json.votes @question.votes do |vote|
   json.extract!(vote, :id, :value, :user_id, :votable_type, :votable_id)
 end
 
-# json.current_user_vote
-json.current_user_vote @question.votes.find_by(user_id: current_user.id)
-
 json.tags @question.tags
 
 json.answers @question.answers do |answer|
@@ -21,4 +18,9 @@ json.answers @question.answers do |answer|
 #   # json.comments answer.comments do |comment|
 #   #   json.extract!(comment, :id, :content, :answer_id, :user_id)
   # end
+end
+
+json.comments @question.comments do |comment|
+  json.extract!(comment, :id, :content, :created_at, :user_id, :commentable_id, :commentable_type)
+  json.user comment.user.username
 end
