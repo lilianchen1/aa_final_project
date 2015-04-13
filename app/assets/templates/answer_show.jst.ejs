@@ -6,13 +6,16 @@
 <div class="voting">
 </div>
 
-<div style="display:inline-block; width: 65%; margin: 20px;">
-  <%= answer.escape('content') %>
-</div>
 <p class="user-info">Answered by:
   <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a><br>
    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
 </p>
+
+<div style="display:inline-block; width: 65%; margin: 20px;">
+  <%= answer.escape('content') %>
+</div>
+
 <ul class="a-comments"></ul>
+
 <button class="new-answer-comment">add comment</button>
 <div class="a-comment-form" id="<%= answer.id %>"></div>
