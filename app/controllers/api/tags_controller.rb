@@ -1,7 +1,7 @@
 class Api::TagsController < Api::ApiController
 
   def index
-    @tags = Tag.all
+    @tags = Tag.order(:name).page(params[:page]).per(10)
     render :index
   end
 

@@ -3,7 +3,6 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     var headerView = new NoPhenotype.Views.HeaderView();
     this.$header = $("div#backbone-header");
-    // this.$header.html(headerView.render().$el);
     $("div.nav-bar").append(headerView.render().$el);
     this.$rootEl = options.$rootEl;
     this.questions = options.questions;

@@ -2,12 +2,8 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
   url: "/api/questions",
   model: NoPhenotype.Models.Question,
 
-  comparator: function(firstQuestion, secondQuestion) {
-    if (firstQuestion.get("created_at") < secondQuestion.get("created_at")) {
-      return 1;
-    } else {
-      return -1;
-    }
+  comparator: function(question) {
+    return -Date.parse(question.get("created_at"));
   },
 
   getOrFetch: function(id) {
@@ -24,5 +20,11 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     });
 
     return question;
+  },
+
+  parse: function(response) {
+    this.page = response.page ? parseInt(response.page) : 1;
+    this.total_pages = parseInt(response.total_pages);
+    return response.models;
   }
 });

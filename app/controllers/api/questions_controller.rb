@@ -18,9 +18,10 @@ class Api::QuestionsController < Api::ApiController
   def index
     if params[:query].present?
       @questions = Question.where("title ~ ? OR content ~ ?", params[:query], params[:query])
+                           .order('questions.created_at DESC').page(params[:page]).per(10)
       render :index
     else
-      @questions = Question.all
+      @questions = Question.order('questions.created_at DESC').page(params[:page]).per(10)
       render :index
     end
   end

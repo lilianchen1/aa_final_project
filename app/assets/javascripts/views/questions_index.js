@@ -13,9 +13,9 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   handleMatchedQ: function(event) {
     event.preventDefault();
-    var inputData = {"query": this.$(".search").val()};
+    this.inputData = { "query": this.$(".search").val() };
     this.searchList.fetch({
-      data: inputData,
+      data: this.inputData,
       success: function(response) {
         this.renderMatchedQ();
       }.bind(this)
@@ -26,7 +26,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   renderMatchedQ: function() {
     this.$("ul.questions-index").empty();
     for (var i = 0; i < this.searchList.length; i++) {
-      //make question index item view and append to li?
       var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.searchList.at(i)});
       this.$("ul.questions-index").append(questionIndexView.render().$el);
 
@@ -42,8 +41,28 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
       });
       this.$("ul.questions-index").append(indexItemView.render().$el);
     });
-
+    this.listenForScroll();
     return this;
+  },
+
+  listenForScroll: function() {
+    $(window).off("scroll"); // remove previous listeners
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  nextPage: function () {
+    var view = this;
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      if (view.collection.page < view.collection.total_pages) {
+        view.collection.fetch({
+          data: this.inputData,
+          data: { page: view.collection.page + 1 },
+          //pass in this.inputData to data? don't want to keep scrolling to non-searched questions
+          remove: false
+        });
+      }
+    }
   }
 
 });
