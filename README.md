@@ -22,7 +22,7 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 - [X] View their own profile page
 - [X] View other users' profile page
 - [ ] Infinite Scroll
-- [ ] Accepting Answers (green checkmark)
+- [X] Accepting Answers (green checkmark)
 - [ ] Multiple sessions (useful for guest account login)
 - [ ] Set up gravatar for users' picture
 
@@ -84,8 +84,11 @@ The idea is for comments to be displayed on answer show view (which is itself a 
 Users can upvote and downvote both questions and answers. Questions and Answer
 show view display NET number of upvotes and downvotes. (Upvote - downvote).
 
+### Phase 6: Accept Answers (0.5 day)
+User who asked a question can accept an answer for the question. Accepting
+an answer makes a green checkmark visible on the answer show view.
 
-### Phase 6: User profile (1 day)
+### Phase 7: User profile (1 day)
 Basic profile page (picture, username, short bio)
 
 
@@ -93,3 +96,4 @@ Basic profile page (picture, username, short bio)
 - [ ] User Profile Page - Display list of questions with link to question by title
 - [ ] Users' index page and search for users by username
 - [ ] Search for tags
+- [X] Search for questions
