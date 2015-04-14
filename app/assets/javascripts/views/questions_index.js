@@ -4,7 +4,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
-    this.$searchList = new NoPhenotype.Collections.Questions();
+    this.searchList = new NoPhenotype.Collections.Questions();
   },
 
   events: {
@@ -14,19 +14,20 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   handleMatchedQ: function(event) {
     event.preventDefault();
     var inputData = {"query": this.$(".search").val()};
-    this.$searchList.fetch({
+    this.searchList.fetch({
       data: inputData,
       success: function(response) {
         this.renderMatchedQ();
       }.bind(this)
     });
+    this.$(".search").val("");
   },
 
   renderMatchedQ: function() {
     this.$("ul.questions-index").empty();
-    for (var i = 0; i < this.$searchList.length; i++) {
+    for (var i = 0; i < this.searchList.length; i++) {
       //make question index item view and append to li?
-      var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.$searchList.at(i)});
+      var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.searchList.at(i)});
       this.$("ul.questions-index").append(questionIndexView.render().$el);
 
     }
