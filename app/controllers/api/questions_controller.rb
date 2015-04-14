@@ -16,8 +16,13 @@ class Api::QuestionsController < Api::ApiController
   end
 
   def index
-    @questions = Question.all
-    render :index
+    if params[:query].present?
+      @questions = Question.where("title ~ ? OR content ~ ?", params[:query], params[:query])
+      render :index
+    else
+      @questions = Question.all
+      render :index
+    end
   end
 
   def destroy
