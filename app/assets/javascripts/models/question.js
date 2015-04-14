@@ -44,13 +44,13 @@ NoPhenotype.Models.Question = Backbone.Model.extend({
       delete response.answers;
     }
 
-    if (response.tags) {
+    if (response.tags.length > 0) {
       this.tags().set(response.tags, {parse: true});
       delete response.tags;
     }
 
     if (response.votes) {
-      this.votes().set(response.votes, {parse: true});
+      this.votes().set(response.votes);
       delete response.votes;
     }
 

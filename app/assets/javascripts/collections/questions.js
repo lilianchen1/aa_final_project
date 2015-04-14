@@ -15,7 +15,7 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     var question = new NoPhenotype.Models.Question({id: id});
     question.fetch({
       success: function() {
-        this.add(question);
+        this.add(question, {parse: true});
       }.bind(this)
     });
 
@@ -25,6 +25,6 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
   parse: function(response) {
     this.page = response.page ? parseInt(response.page) : 1;
     this.total_pages = parseInt(response.total_pages);
-    return response.models;
+    return response.models || response;
   }
 });
