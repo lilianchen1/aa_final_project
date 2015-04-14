@@ -21,7 +21,7 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 - [X] Upvote and downvote questions and answers
 - [X] View their own profile page
 - [X] View other users' profile page
-- [ ] Infinite Scroll
+- [X] Infinite Scroll
 - [X] Accepting Answers (green checkmark)
 - [ ] Multiple sessions (useful for guest account login)
 - [ ] Set up gravatar for users' picture

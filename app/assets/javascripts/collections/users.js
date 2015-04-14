@@ -1,8 +1,10 @@
 NoPhenotype.Collections.Users = Backbone.Collection.extend({
   url: "/api/users",
   model: NoPhenotype.Models.User,
-  comparator: "username",
-  
+  comparator: function(user) {
+    return user.get("username").toLowerCase();
+  },
+
   getOrFetch: function(id) {
     if (this.get(id)) {
       this.get(id).fetch();
