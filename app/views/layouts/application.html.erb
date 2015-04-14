@@ -16,7 +16,7 @@
       };
     </script>
     <div class="nav-bar">
-      <%= image_tag "NoPhenotype.png" %>
+      <%= link_to image_tag("NoPhenotype.png"), root_url %>
       <div class="nav-bar-right">
         <h4>logged in as: <span style="color:#5D6B95"><%= current_user.username %></span></h4>
         <%= button_to "Log Out", session_url, method: :delete %>
