@@ -3,7 +3,7 @@
 <% } %>
 
 <% if (window.currentUser && window.currentUser.current_user_id === question.escape('user_id')) { %>
-  <a href="#/questions/<%= question.id %>/edit">edit</a>
+  <a class="edit-q" href="#/questions/<%= question.id %>/edit">edit</a>
 <% } %>
 
 <div class="voting" style="margin-top:5px">
