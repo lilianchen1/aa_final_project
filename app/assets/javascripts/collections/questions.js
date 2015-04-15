@@ -6,6 +6,23 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     return -Date.parse(question.get("created_at"));
   },
 
+  order_by_popularity: function() {
+    this.comparator = this._order_by_popularity;
+    this.sort();
+  },
+
+  _order_by_popularity: function(question1, question2) {
+    if (question1.get('vote_count') > question2.get('vote_count')) {
+      return -1;
+    }
+    else if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') > question2.get('answercount')) {
+      return -1;
+    }
+    else {
+      return 1;
+    }
+  },
+
   getOrFetch: function(id) {
     if (this.get(id)) {
       this.get(id).fetch();

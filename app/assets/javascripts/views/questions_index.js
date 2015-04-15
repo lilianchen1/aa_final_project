@@ -8,7 +8,28 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   events: {
-    "click button": "handleMatchedQ"
+    "click button.search-q": "handleMatchedQ",
+    "click button.popularity-sort": "sortByPopularity"
+  },
+
+  sortByPopularity: function(event) {
+    event.preventDefault();
+    this.$("ul.questions-index").empty();
+    this.collection.order_by_popularity();
+    this.inputData = {"sort": "" };
+    this.collection.fetch({
+      data: this.inputData,
+      success: function(response) {
+        this.renderByPopularity();
+      }.bind(this)
+    });
+  },
+
+  renderByPopularity: function() {
+    for (var i = 0; i < this.collection.length; i++) {
+      var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.collection.at(i)});
+      this.$("ul.questions-index").append(questionIndexView.render().$el);
+    }
   },
 
   handleMatchedQ: function(event) {
@@ -38,7 +59,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   render: function() {
     var content = this.template();
     this.$el.html(content);
-
     this.collection.each(function(question) {
       var indexItemView = new NoPhenotype.Views.QuestionIndexItem({
         model: question
@@ -62,7 +82,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
         view.collection.fetch({
           data: this.inputData,
           data: { page: view.collection.page + 1 },
-          //pass in this.inputData to data? don't want to keep scrolling to non-searched questions
           remove: false
         });
       }
