@@ -8,7 +8,7 @@
 
     <%= image_tag "NoPhenotype.png", width:'100%' %>
     <h3>New User? <a href="/users/new" class="signup-link">Sign up!</a></h3>
-    <form action="/session" method="post">
+    <form action="/sessions" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label>
         <div class="info">Email</div>
@@ -23,7 +23,7 @@
       <input type="submit" class="new" value="Log In">
     </form>
 
-    <form action="/session" method="post">
+    <form action="/sessions" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label>
         <input type="hidden" name="user[email]" value="guest@example.com">
