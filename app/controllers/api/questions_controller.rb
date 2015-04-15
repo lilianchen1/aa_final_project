@@ -26,6 +26,15 @@ class Api::QuestionsController < Api::ApiController
     end
   end
 
+  def update
+    @question = Question.find(params[:id])
+    if @question.update(question_params)
+      render :show
+    else
+      render json: nil, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @question = Question.find(params[:id])
     @question.destroy

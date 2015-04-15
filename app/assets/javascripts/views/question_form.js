@@ -3,13 +3,18 @@ NoPhenotype.Views.QuestionForm = Backbone.View.extend({
   tagName: "form",
   className: "new-question",
 
+  initialize: function() {
+    this.listenTo(this.model, "sync", this.render);
+  },
+
   events: {
     "click button.ask-question": "submit"
   },
 
   render: function() {
     var content = this.template({
-      question: this.model
+      question: this.model,
+      tag_list: this.model.get('tag_list')
     });
     this.$el.html(content);
     return this;

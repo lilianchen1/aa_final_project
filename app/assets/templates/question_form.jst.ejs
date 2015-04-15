@@ -1,17 +1,17 @@
 <label><p>Title</p>
-  <input type="text" name="title">
+  <input type="text" name="title" value="<%= question.escape('title') %>">
 </label>
 
 <br>
 
 <label><p>Content</p>
-  <textarea name="content"></textarea>
+  <textarea name="content"><%= question.escape('content') %></textarea>
 </label>
 
 <br>
 
 <label><p>Tags</p>
-  <input type="text" name="tag_list">
+  <input type="text" name="tag_list" value="<%= tag_list %>">
 </label>
 
 <br>

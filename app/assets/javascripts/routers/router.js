@@ -14,6 +14,7 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     "": "index",
     "questions/new": "new",
     "questions/:id": "show",
+    "questions/:id/edit": "edit",
     "tags": "tagIndex",
     "tags/:id": "tagShow",
     "users": "usersIndex",
@@ -71,6 +72,16 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(showView);
+  },
+
+  edit: function(id) {
+    var question = this.questions.getOrFetch(id);
+    var editView = new NoPhenotype.Views.QuestionForm({
+      model: question,
+      collection: this.questions
+    });
+
+    this._swapView(editView);
   },
 
   _swapView: function(view) {
