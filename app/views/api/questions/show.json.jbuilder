@@ -1,6 +1,7 @@
 json.extract!(@question, :id, :title, :content, :user_id, :created_at, :tag_list)
 
 json.user @question.user.username
+json.user_img @question.user.img_url
 json.vote_count (@question.votes.where("value = 1").count - @question.votes.where("value = -1").count)
 
 json.votes @question.votes do |vote|
@@ -12,6 +13,7 @@ json.tags @question.tags
 json.answers @question.answers do |answer|
   json.extract!(answer, :id, :content, :question_id, :user_id, :created_at, :accepted)
   json.user answer.user.username
+  json.user_img answer.user.img_url
   json.question answer.question
   json.vote_count (answer.votes.where("value = 1").count - answer.votes.where("value = -1").count)
   json.votes answer.votes

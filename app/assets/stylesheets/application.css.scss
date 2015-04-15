@@ -252,9 +252,7 @@ form button {
 }
 
 .question-show {
-  h3 {
-    border-bottom: 1px solid #ccc;
-  }
+  border-bottom: 1px solid #ccc;
 }
 
 .question-index-item > * {
@@ -393,5 +391,17 @@ a.edit-q-show {
   text-decoration: none;
   color: #0047B2;
   float: right;
-  margin-right: 80%;
+}
+
+.user-show {
+  overflow: auto;
+  img {
+    width: 200px;
+    float: left;
+  }
+  .user-show-info {
+    display: inline-block;
+    margin-left: 20px;
+    float: left;
+  }
 }

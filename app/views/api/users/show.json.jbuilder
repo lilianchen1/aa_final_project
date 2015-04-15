@@ -1,4 +1,4 @@
-json.extract!(@user, :id, :username, :email, :created_at)
+json.extract!(@user, :id, :username, :email, :created_at, :img_url)
 
 json.questions @user.questions do |question|
   json.extract!(question, :id, :title)
