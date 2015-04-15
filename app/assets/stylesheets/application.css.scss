@@ -399,6 +399,9 @@ button.search-q {
   border: none;
   border-radius: 5px;
   color: white;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 a.edit-q-show {
@@ -417,5 +420,12 @@ a.edit-q-show {
     display: inline-block;
     margin-left: 20px;
     float: left;
+  }
+}
+
+button.popularity-sort {
+  margin-left: 30px;
+  &:hover {
+    cursor: pointer;
   }
 }
