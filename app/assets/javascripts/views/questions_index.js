@@ -25,6 +25,9 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   renderMatchedQ: function() {
     this.$("ul.questions-index").empty();
+    if (this.searchList.length === 0) {
+      this.$("ul.questions-index").html("no question's title or content match your input");
+    }
     for (var i = 0; i < this.searchList.length; i++) {
       var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.searchList.at(i)});
       this.$("ul.questions-index").append(questionIndexView.render().$el);
