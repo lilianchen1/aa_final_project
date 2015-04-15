@@ -6,20 +6,24 @@
   <h3><%= question.escape("title") %></h3>
 </div>
 
-<p class="user-info">Asked by:
-  <a href="#/users/<%= question.escape('user_id') %>"><%= question.get('user') %></a><br>
-   Asked: <%= (question.escape("created_at")).slice(0, 10) %>
-</p>
+<div class="q-info-show">
 
-<div class="voting">
-</div>
+  <p class="user-info">
+    Asked: <%= (question.escape("created_at")).slice(0, 10) %>
+    <br>
+    <img src="<%= question.get('user_img') %>"/>
+    <a href="#/users/<%= question.escape('user_id') %>"><%= question.get('user') %></a>
+  </p>
+
+  <div class="voting">
+  </div>
 
 
-<div style="display:inline-block; width: 65%; margin: 20px;">
-  <%= question.escape("content") %>
-</div>
+  <div style="display:inline-block; width: 65%; margin: 20px;">
+    <%= question.escape("content") %>
+  </div>
 
-<div class="tags" style="margin-left: 140px;">
+  <div class="tags" style="margin-left: 140px;"></div>
 
 </div>
 

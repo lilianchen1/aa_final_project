@@ -224,9 +224,6 @@
      border-top: 1px solid #ccc;
      border-bottom: 1px solid #ccc;
      overflow: auto;
-     img {
-       float: left;
-     }
    }
  }
 
@@ -251,6 +248,10 @@ form button {
   }
 }
 
+.q-info-show, .a-info-show {
+  overflow: auto;
+}
+
 .question-show {
   border-bottom: 1px solid #ccc;
 }
@@ -267,10 +268,17 @@ form button {
   float: right;
   display: inline-block;
   width: 150px;
+  img {
+    width: 50px;
+    float: left;
+  }
   a {
     text-decoration: none;
     color: #0047B2;
     font-weight: 600;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: inline-block;
     &:hover {
       color: #3E4141;
     }

@@ -19,9 +19,11 @@
 </div>
 
 
-<div class="user-info">Asked by:
-  <a href="#/users/<%= question.escape('user_id') %>"><%= question.get('user') %></a><br>
+<div class="user-info">
   Asked: <%= question.escape("created_at").slice(0, 10) %>
+  <br>
+  <img src="<%= question.get('user_img') %>"/>
+  <a href="#/users/<%= question.escape('user_id') %>"><%= question.get('user') %></a>
 </div>
 
 

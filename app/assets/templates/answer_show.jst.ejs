@@ -12,21 +12,24 @@
   </button>
 <% } %>
 
+<div class="a-info-show">
+  <div class="voting"></div>
 
-<div class="voting">
-</div>
+  <p class="user-info">
+    Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
+    <br>
+    <img src="<%= answer.get('user_img') %>"/>
+    <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a>   
+  </p>
 
-<p class="user-info">Answered by:
-  <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a><br>
-   Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
-</p>
+  <% if (answer.escape('accepted') === "true") { %>
+    <img src="https://s3-us-west-2.amazonaws.com/no-phenotype-users-pics/green-check.png"/>
+  <% } %>
 
-<% if (answer.escape('accepted') === "true") { %>
-  <img src="https://s3-us-west-2.amazonaws.com/no-phenotype-users-pics/green-check.png"/>
-<% } %>
+  <div style="display:inline-block; width: 65%; margin: 20px;">
+    <%= answer.escape('content') %>
+  </div>
 
-<div style="display:inline-block; width: 65%; margin: 20px;">
-  <%= answer.escape('content') %>
 </div>
 
 <ul class="a-comments"></ul>
