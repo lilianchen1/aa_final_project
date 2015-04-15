@@ -1,9 +1,9 @@
 
 <div class="question-show">
-  <h3><%= question.escape("title") %></h3>
   <% if (window.currentUser && window.currentUser.current_user_id === question.escape('user_id')) { %>
-    <a class="edit-q" href="#/questions/<%= question.id %>/edit">edit</a>
+    <a class="edit-q-show" href="#/questions/<%= question.id %>/edit">edit question</a>
   <% } %>
+  <h3><%= question.escape("title") %></h3>
 </div>
 
 <p class="user-info">Asked by:

@@ -342,7 +342,8 @@ ul.users-list {
 }
 
 button.new-comment, button.new-answer-comment {
-  background-color: white;
+  background-color: #eee;
+  border-radius: 10px;
   border: none;
   color: gray;
   margin-left: 100px;
@@ -388,8 +389,17 @@ button.search-q {
   color: white;
 }
 
-a.edit-q {
-  margin-left: 5px;
+a.edit-q, a.edit-q-show {
   text-decoration: none;
   color: #0047B2;
+}
+
+a.edit-q {
+  margin-top: 50px;
+  margin-left: -40px;
+}
+
+a.edit-q-show {
+  float: right;
+  margin-right: 80%;
 }
