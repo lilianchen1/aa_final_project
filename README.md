@@ -97,5 +97,5 @@ Basic profile page (picture, username, short bio)
 - [ ] Users' index page and search for users by username
 - [X] Search for tags
 - [X] Search for questions
-- [ ] Link to Sort questions by popularity
+- [X] Link to Sort questions by popularity
 - [ ] About blurp for website
