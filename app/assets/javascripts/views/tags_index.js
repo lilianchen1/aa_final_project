@@ -3,6 +3,7 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
+    this.searchList = new NoPhenotype.Collections.Tags();
   },
 
   render: function() {
@@ -10,6 +11,33 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
     this.$el.html(content);
     this.listenForScroll();
     return this;
+  },
+
+  events: {
+    "keyup .search": "handleMatchedTag"
+  },
+
+  handleMatchedTag: function(event) {
+    if (this.$(".search").val() === "") {
+      this.render();
+      return;
+    }
+    event.preventDefault();
+    this.inputData = { "query": this.$(".search").val() };
+    this.searchList.fetch({
+      data: this.inputData,
+      success: function(response) {
+        this.renderMatchedTag();
+      }.bind(this)
+    });
+  },
+
+  renderMatchedTag: function() {
+    this.$("ul.tag-list").empty();
+    for (var i = 0; i < this.searchList.length; i++) {
+      var tag = this.searchList.at(i);
+      $("ul.tag-list").append("<li><a class='tags' href='#/tags/" + tag.id + "'>"+ tag.get('name') + "</a> x " + tag.get('questions_count') + "</li>");
+    }
   },
 
   listenForScroll: function() {

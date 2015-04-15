@@ -1,10 +1,12 @@
 <h2>Tags</h2>
 
+<div class="tags-search">Search for tags:
+  <input type="text" class="search">
+</div>
+
 <ul class="tag-list">
-  <% tags.each(function(tag) { %>
-    <% if (tag.get('questions_count') > 0) { %>
+  <% tags.each(function(tag) { %>  
       <li><a href="#/tags/<%= tag.id %>" class="tags"><%= tag.escape('name') %></a>
       x <%= tag.get('questions_count') %></li>
-    <% } %>
   <% }) %>
 </ul>
