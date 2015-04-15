@@ -325,16 +325,20 @@ ul.users-list {
     display: inline-block;
     list-style: none;
     margin: 20px;
-    a {
+    a.username {
+      float: left;
+      margin-left: 10px;
       text-decoration: none;
       font-size: 1.2em;
-      background-color: #2A2A32;
-      color: white;
-      border-radius: 5px;
-      padding: 5px;
+      color: black;
+      margin-top: 20px;
       &:hover {
-        background-color: #003300;
+        color: #003300;
       }
+    }
+    a img {
+      float: left;
+      width: 70px;
     }
   }
 }
