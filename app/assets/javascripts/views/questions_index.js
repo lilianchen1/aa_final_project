@@ -7,7 +7,8 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   events: {
-    "click button.search-q": "handleMatchedQ",
+    // "click button.search-q": "handleMatchedQ",
+    "submit form": "handleMatchedQ",
     "click button.popularity-sort": "sortByPopularity"
   },
 
@@ -77,19 +78,22 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
-    if (this.searchList && (this.searchList.page === this.searchList.total_pages)) {
-      return;
-    }
-    var view = this;
-    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-      if (view.collection.page < view.collection.total_pages) {
-        this.inputData = this.inputData || {};
-        this.inputData.sort = this.sortingNow;
-        this.inputData.page = view.collection.page + 1;
-        view.collection.fetch({
-          data: this.inputData,
-          remove: false
-        });
+    // if (this.searchList && (this.searchList.page === this.searchList.total_pages)) {
+    //   return;
+    // }
+
+    if (!this.searchList) {
+      var view = this;
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        if (view.collection.page < view.collection.total_pages) {
+          this.inputData = this.inputData || {};
+          this.inputData.sort = this.sortingNow;
+          this.inputData.page = view.collection.page + 1;
+          view.collection.fetch({
+            data: this.inputData,
+            remove: false
+          });
+        }
       }
     }
   }

@@ -1,12 +1,12 @@
-<div class="q-a">
-  <ul class="user-q"><p>questions asked</p></ul>
-  <ul class="user-a"><p>questions answered</p></ul>
-</div>
-
 <div class="user-show">
   <img src="<%= user.escape('img_url') %>"/>
   <div class="user-show-info">
     <p><strong>Username:</strong> <%= user.escape('username') %></p>
     <p><strong>Signed up:</strong> <%= user.escape('created_at').slice(0, 10) %></p>
   </div>
+</div>
+
+<div class="q-a">
+  <ul class="user-q"><div class="profile-q-a">questions asked</div></ul>
+  <ul class="user-a"><div class="profile-q-a">questions answered</div></ul>
 </div>

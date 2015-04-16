@@ -133,8 +133,6 @@
  #content {
    margin-top: 10px;
    padding: 40px;
-  //  opacity: 0.9;
-  //  background-color: white;
    background: white;
    background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.85) 47%, rgba(237,237,237,0.65) 100%);
 
@@ -374,6 +372,7 @@ textarea.comment-form {
 }
 
 button.search-q {
+  padding: 2px;
   background-color: #003300;
   border: none;
   border-radius: 5px;
@@ -389,19 +388,49 @@ a.edit-q-show {
   float: right;
 }
 
-.user-show {
-  display: inline-block;
+.profile-page {
   overflow: auto;
-  img {
-    width: 200px;
-    float: left;
-  }
-  .user-show-info {
+  .q-a{
     display: inline-block;
-    margin-left: 20px;
     float: left;
+    ul.user-q, ul.user-a {
+      margin-left: 30px;
+      display: inline-block;
+      float: left;
+      width: 200px;
+      .profile-q-a {
+        width: 110%;
+        font-weight: bold;
+        border-bottom: 1px solid #909094;
+        margin-bottom: 5px;
+      }
+
+      li {
+        list-style-type: circle;
+        margin: 5px;
+        a {
+          text-decoration: none;
+          color: #0047B2;
+        }
+      }
+    }
+  }
+  .user-show {
+    display: inline-block;
+    float: left;
+    img {
+      display:inline-block;
+      float:left;
+      width: 200px;
+    }
+    .user-show-info {
+      margin-left: 20px;
+      display: inline-block;
+      float: left;
+    }
   }
 }
+
 
 button.popularity-sort {
   margin-left: 30px;
@@ -409,51 +438,6 @@ button.popularity-sort {
     cursor: pointer;
   }
 }
-
-.q-a{
-  float: right;
-}
-
-ul.user-q, ul.user-a {
-  list-style: none;
-  a {
-    text-decoration: none;
-    color: #0047B2;
-  }
-  display: inline-block;
-}
-
-// button.upvote {
-//   padding: 3px;
-//   border-radius: 20px;
-//   color: white;
-//   width: 90%;
-//   background-color: #9999A9;
-//   &:hover {
-//     background-color: #003300;
-//   }
-// }
-//
-// button.upvote-selected {
-//   padding: 3px;
-//   border-radius: 20px;
-//   color: white;
-//   width: 90%;
-//   background-color: #003300;
-// }
-
-// button.downvote-selected {
-//   width: 90%;
-//   background-color: #4D704D;
-// }
-
-// button.downvote {
-//   width: 90%;
-//   background-color: #9999A9;
-//   &:hover {
-//     background-color: #4D704D;
-//   }
-// }
 
 button.upvote, button.downvote, button.upvote-selected, button.downvote-selected {
   padding: 0;
