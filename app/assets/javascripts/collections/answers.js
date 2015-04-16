@@ -4,6 +4,6 @@ NoPhenotype.Collections.Answers = Backbone.Collection.extend({
   model: NoPhenotype.Models.Answer,
 
   comparator: function(answer) {
-    return [-answer.get('accepted'), answer.get('created_at')];
+    return [-answer.get('accepted'), Date.parse(answer.get('created_at'))];
   }
 });
