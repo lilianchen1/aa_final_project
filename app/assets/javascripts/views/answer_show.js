@@ -38,6 +38,7 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
       collection: this.model.comments(),
       commentableModel: this.model,
     });
+    this.$("button.new-answer-comment").remove();
     this.$("div#"+ this.model.id).append(commentForm.render().$el);
   },
 
