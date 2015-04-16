@@ -24,6 +24,7 @@ NoPhenotype.Views.QuestionShow = Backbone.View.extend({
       collection: this.model.comments(),
       commentableModel: this.model,
     });
+    this.$("button.new-comment").remove();
     (commentForm.render().$el).insertBefore("ul.answers");
   },
 
