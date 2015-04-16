@@ -4,10 +4,10 @@ class Api::TagsController < Api::ApiController
     if params[:query].present?
       @tags = Tag.joins(:questions)
                  .where("questions.id IS NOT NULL AND name ~ ?", params[:query])
-                 .order(:name).page(params[:page]).per(10)
+                 .order(:name).page(params[:page]).per(20)
       render :index
     else
-      @tags = Tag.joins(:questions).where('questions.id IS NOT NULL').order(:name).page(params[:page]).per(10)
+      @tags = Tag.joins(:questions).where('questions.id IS NOT NULL').order(:name).page(params[:page]).per(20)
       render :index
     end
   end

@@ -16,6 +16,9 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
       return -1;
     }
     else if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') > question2.get('answercount')) {
+      if (question1.get('created_at') < question2.get('created_at')) {
+        return 1;
+      }
       return -1;
     }
     else {

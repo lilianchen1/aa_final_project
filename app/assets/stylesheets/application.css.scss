@@ -420,6 +420,7 @@ a.edit-q-show {
 }
 
 .user-show {
+  display: inline-block;
   overflow: auto;
   img {
     width: 200px;
@@ -437,4 +438,17 @@ button.popularity-sort {
   &:hover {
     cursor: pointer;
   }
+}
+
+.q-a{
+  float: right;
+}
+
+ul.user-q, ul.user-a {
+  list-style: none;
+  a {
+    text-decoration: none;
+    color: #0047B2;
+  }
+  display: inline-block;
 }
