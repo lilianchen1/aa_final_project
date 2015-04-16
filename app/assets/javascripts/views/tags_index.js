@@ -44,6 +44,9 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
+    if (this.$(".search").val() !== "") {
+      return;
+    }
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.collection.page < view.collection.total_pages) {
