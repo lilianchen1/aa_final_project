@@ -7,7 +7,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   events: {
-    // "click button.search-q": "handleMatchedQ",
     "submit form": "handleMatchedQ",
     "click button.popularity-sort": "sortByPopularity"
   },

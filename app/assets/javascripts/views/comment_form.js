@@ -20,7 +20,7 @@ NoPhenotype.Views.CommentForm = Backbone.View.extend({
   submit: function(event) {
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
-    if (attrs.content === "") {
+    if ((attrs.content === "") || (attrs.content.replace(/^\s+|\s+$/g,"") === "")) {
       return;
     }
     this.model.save(attrs, {
