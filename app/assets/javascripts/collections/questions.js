@@ -12,18 +12,24 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
   },
 
   _order_by_popularity: function(question1, question2) {
-    if (question1.get('vote_count') > question2.get('vote_count')) {
-      return -1;
-    }
-    else if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') > question2.get('answercount')) {
-      if (question1.get('created_at') > question2.get('created_at')) {
-        return 1;
-      }
-      return -1;
-    }
-    else {
+    if (question1.get('vote_count') < question2.get('vote_count')) {
       return 1;
     }
+    if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') < question2.get('answercount')) {
+      return 1;
+    }
+    if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') === question2.get('answercount') && Date.parse(question1.get('created_at')) < Date.parse(question2.get('created_at'))) {
+      return 1;
+    }
+    if (question1.get('vote_count') >= question2.get('vote_count')) {
+      return -1;
+    }
+    if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') >= question2.get('answercount')) {
+      return -1;
+    }
+    if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') === question2.get('answercount') && Date.parse(question1.get('created_at')) >= Date.parse(question2.get('created_at'))) {
+      return -1;
+    } 
   },
 
   getOrFetch: function(id) {

@@ -26,6 +26,6 @@ class Question < ActiveRecord::Base
       .group("questions.id")
       .order("COUNT(votes.votable_id) DESC")
       .order("COUNT(answers.question_id) DESC")
-      .order("questions.created_at")
+      .order("questions.created_at DESC")
   end
 end
