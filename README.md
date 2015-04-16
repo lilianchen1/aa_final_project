@@ -99,3 +99,4 @@ Basic profile page (picture, username, short bio)
 - [X] Search for questions
 - [X] Link to Sort questions by popularity
 - [ ] About blurb for website
+- [ ] Editing ability for user's profile

@@ -29,7 +29,7 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     }
     if (question1.get('vote_count') === question2.get('vote_count') && question1.get('answercount') === question2.get('answercount') && Date.parse(question1.get('created_at')) >= Date.parse(question2.get('created_at'))) {
       return -1;
-    } 
+    }
   },
 
   getOrFetch: function(id) {

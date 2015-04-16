@@ -34,6 +34,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   handleMatchedQ: function(event) {
     event.preventDefault();
+    this.inputData = {};
     this.inputData = { "query": this.$(".search").val() };
     this.searchList.fetch({
       data: this.inputData,
@@ -76,6 +77,9 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
+    if (this.searchList.page === this.searchList.total_pages) {
+      return;
+    }
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.collection.page < view.collection.total_pages) {
