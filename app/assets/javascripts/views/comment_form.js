@@ -21,7 +21,6 @@ NoPhenotype.Views.CommentForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     if (attrs.content === "") {
-      this.remove();
       return;
     }
     this.model.save(attrs, {
