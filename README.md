@@ -98,4 +98,4 @@ Basic profile page (picture, username, short bio)
 - [X] Search for tags
 - [X] Search for questions
 - [X] Link to Sort questions by popularity
-- [ ] About blurp for website
+- [ ] About blurb for website

@@ -71,7 +71,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   listenForScroll: function() {
     $(window).off("scroll"); // remove previous listeners
-    var throttledCallback = _.throttle(this.nextPage.bind(this), 400);
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
     $(window).on("scroll", throttledCallback);
   },
 

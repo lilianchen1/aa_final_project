@@ -42,7 +42,7 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
 
   listenForScroll: function() {
     $(window).off("mousewheel DOMMouseScroll"); // remove previous listeners
-    var throttledCallback = _.throttle(this.nextPage.bind(this), 400);
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
     $(window).on('mousewheel DOMMouseScroll', throttledCallback);
   },
 
