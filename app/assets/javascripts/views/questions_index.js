@@ -4,7 +4,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync add remove", this.render);
-    this.searchList = new NoPhenotype.Collections.Questions();
   },
 
   events: {
@@ -36,6 +35,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     event.preventDefault();
     this.inputData = {};
     this.inputData = { "query": this.$(".search").val() };
+    this.searchList = new NoPhenotype.Collections.Questions();
     this.searchList.fetch({
       data: this.inputData,
       success: function(response) {
@@ -77,7 +77,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
-    if (this.searchList.page === this.searchList.total_pages) {
+    if (this.searchList && (this.searchList.page === this.searchList.total_pages)) {
       return;
     }
     var view = this;
