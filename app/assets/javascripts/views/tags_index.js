@@ -18,10 +18,6 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
   },
 
   handleMatchedTag: function(event) {
-    if (this.$(".search").val() === "") {
-      this.render();
-      return;
-    }
     event.preventDefault();
     this.inputData = { "query": this.$(".search").val() };
     this.searchList.fetch({
