@@ -22,10 +22,7 @@ class Api::QuestionsController < Api::ApiController
       render :index
 
     elsif params[:sort].present?
-      @questions = Question.order('questions.votes.count')
-                           .order('questions.answers.count')
-                           .order('questions.created_at DESC')
-                           .page(params[:page]).per(7)
+      @questions = Question.sort_by_popularity.page(params[:page]).per(7)
       render :index
     else
       @questions = Question.order('questions.created_at DESC').page(params[:page]).per(7)
