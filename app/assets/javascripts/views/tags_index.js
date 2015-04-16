@@ -3,7 +3,6 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
 
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render);
-    this.searchList = new NoPhenotype.Collections.Tags();
   },
 
   render: function() {
@@ -14,12 +13,14 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
   },
 
   events: {
-    "keyup .search": "handleMatchedTag"
+    "keyup .search": "handleMatchedTag",
+    "blur .search": "render"
   },
 
   handleMatchedTag: function(event) {
     event.preventDefault();
     this.inputData = { "query": this.$(".search").val() };
+    this.searchList = new NoPhenotype.Collections.Tags();
     this.searchList.fetch({
       data: this.inputData,
       success: function(response) {
