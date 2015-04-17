@@ -14,20 +14,20 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   sortByPopularity: function(event) {
     event.preventDefault();
     this.$("ul.questions-index").empty();
-    this.collection.order_by_popularity();
-    this.sortingNow = true;
-    this.collection.fetch({
-      data: { sort: this.sortingNow },
-      success: function(response) {
-        this.renderByPopularity();
-      }.bind(this)
-    });
+      this.collection.order_by_popularity();
+      this.sortingNow = true;
+      this.collection.fetch({
+        data: { sort: this.sortingNow },
+        success: function(response) {
+          this.renderByPopularity();
+        }.bind(this)
+      });
   },
 
   renderByPopularity: function() {
-    for (var i = 0; i < this.collection.length; i++) {
-      var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.collection.at(i)});
-      this.$("ul.questions-index").append(questionIndexView.render().$el);
+    for (var j = 0; j < this.collection.length; j++) {
+        var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.collection.at(j)});
+        this.$("ul.questions-index").append(questionIndexView.render().$el);
     }
   },
 
@@ -36,6 +36,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     this.inputData = {};
     this.inputData = { "query": this.$(".search").val() };
     this.searchList = new NoPhenotype.Collections.Questions();
+    this.listenTo(this.searchList, "sync", this.renderMatchedQ);
     this.searchList.fetch({
       data: this.inputData,
       success: function(response) {
@@ -91,18 +92,17 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
         }
       }
     }
-
     if (this.searchList) {
       if (this.searchList.page === this.searchList.total_pages) {
         return;
       }
       var view1 = this;
       if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        if (view1.collection.page < view1.collection.total_pages) {
+        if (view1.searchList.page < view1.searchList.total_pages) {
           this.inputData = this.inputData || {};
           this.inputData.sort = this.sortingNow;
-          this.inputData.page = view1.collection.page + 1;
-          view1.collection.fetch({
+          this.inputData.page = view1.searchList.page + 1;
+          view1.searchList.fetch({
             data: this.inputData,
             remove: false
           });

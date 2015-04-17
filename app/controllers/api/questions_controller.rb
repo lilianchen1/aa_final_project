@@ -18,9 +18,8 @@ class Api::QuestionsController < Api::ApiController
   def index
     if params[:query].present?
       @questions = Kaminari::paginate_array(
-        Question.where("title ~ ? OR content ~ ?", params[:query], params[:query])
-                .order('questions.created_at DESC').to_a
-      ).page(params[:page]).per(5)
+        Question.search_result(params[:query]).to_a
+      ).page(params[:page]).per(7)
       render :index
 
     elsif params[:sort].present?

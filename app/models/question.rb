@@ -23,6 +23,11 @@ class Question < ActiveRecord::Base
     votes.pluck(:value).inject(:+) || 0
   end
 
+  def self.search_result(params)
+    Question.where("title ~ ? OR content ~ ?", params, params)
+            .order('questions.created_at DESC')
+  end
+
   def self.sort_by_popularity
     subquery = Question.select("questions.*, SUM(COALESCE(votes.value, 0)) AS votes_count")
             .joins("LEFT OUTER JOIN votes ON questions.id = votes.votable_id")
