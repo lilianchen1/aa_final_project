@@ -17,7 +17,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     this.collection.order_by_popularity();
     this.sortingNow = true;
     this.collection.fetch({
-      data: { sort: this.sortingNow },
+      data: { sort: this.sortingNow},
       success: function(response) {
         this.renderByPopularity();
       }.bind(this)
@@ -80,7 +80,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     // if (this.searchList && (this.searchList.page === this.searchList.total_pages)) {
     //   return;
     // }
-
     if (!this.searchList) {
       var view = this;
       if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
