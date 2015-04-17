@@ -17,12 +17,16 @@ class Api::QuestionsController < Api::ApiController
 
   def index
     if params[:query].present?
-      @questions = Question.where("title ~ ? OR content ~ ?", params[:query], params[:query])
-                           .order('questions.created_at DESC').page(params[:page]).per(7)
+      @questions = Kaminari::paginate_array(
+        Question.where("title ~ ? OR content ~ ?", params[:query], params[:query])
+                .order('questions.created_at DESC').to_a
+      ).page(params[:page]).per(5)
       render :index
 
     elsif params[:sort].present?
-      @questions = Question.sort_by_popularity.page(params[:page]).per(50)
+      @questions = Kaminari::paginate_array(
+        Question.sort_by_popularity.to_a
+      ).page(params[:page]).per(7)
       render :index
     else
       @questions = Question.order('questions.created_at DESC').page(params[:page]).per(7)

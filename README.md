@@ -93,10 +93,11 @@ Basic profile page (picture, username, short bio)
 
 
 ### Bonus Features
-- [ ] User Profile Page - Display list of questions with link to question by title
+- [X] User Profile Page - Display list of questions with link to question by title
 - [ ] Users' index page and search for users by username
 - [X] Search for tags
 - [X] Search for questions
 - [X] Link to Sort questions by popularity
-- [ ] About blurb for website
+- [X] About blurb for website
 - [ ] Editing ability for user's profile
+- [ ] Unanswered questions

@@ -17,7 +17,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     this.collection.order_by_popularity();
     this.sortingNow = true;
     this.collection.fetch({
-      data: { sort: this.sortingNow},
+      data: { sort: this.sortingNow },
       success: function(response) {
         this.renderByPopularity();
       }.bind(this)
@@ -77,9 +77,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
-    // if (this.searchList && (this.searchList.page === this.searchList.total_pages)) {
-    //   return;
-    // }
     if (!this.searchList) {
       var view = this;
       if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
@@ -88,6 +85,24 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
           this.inputData.sort = this.sortingNow;
           this.inputData.page = view.collection.page + 1;
           view.collection.fetch({
+            data: this.inputData,
+            remove: false
+          });
+        }
+      }
+    }
+
+    if (this.searchList) {
+      if (this.searchList.page === this.searchList.total_pages) {
+        return;
+      }
+      var view1 = this;
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        if (view1.collection.page < view1.collection.total_pages) {
+          this.inputData = this.inputData || {};
+          this.inputData.sort = this.sortingNow;
+          this.inputData.page = view1.collection.page + 1;
+          view1.collection.fetch({
             data: this.inputData,
             remove: false
           });
