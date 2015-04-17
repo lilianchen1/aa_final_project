@@ -14,7 +14,6 @@ NoPhenotype.Views.TagsIndex = Backbone.View.extend({
 
   events: {
     "keyup .search": "handleMatchedTag",
-    "blur .search": "render",
     "click a":"removeMakeGreen"
   },
 
