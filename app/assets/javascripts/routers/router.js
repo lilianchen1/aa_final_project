@@ -1,13 +1,15 @@
 NoPhenotype.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options) {
-    var headerView = new NoPhenotype.Views.HeaderView();
-    this.$header = $("div#backbone-header");
-    $("div.nav-bar").append(headerView.render().$el);
     this.$rootEl = options.$rootEl;
     this.questions = options.questions;
     this.tags = new NoPhenotype.Collections.Tags();
     this.users = new NoPhenotype.Collections.Users();
+    var headerView = new NoPhenotype.Views.HeaderView({
+      collection: this.questions
+    });
+    this.$header = $("div#backbone-header");
+    $("div.nav-bar").append(headerView.render().$el);
   },
 
   routes: {

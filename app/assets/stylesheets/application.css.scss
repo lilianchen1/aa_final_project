@@ -141,6 +141,7 @@
    width: 50%;
  }
 
+
  #backbone-header a {
    text-decoration: none;
    display: inline-block;
@@ -153,6 +154,11 @@
      background-color: #5A793C;
    }
  }
+
+ #backbone-header a.make-green {
+  background-color: #5A793C;
+}
+
 
  #content {
    margin-top: 5px;
@@ -517,10 +523,17 @@ div.about {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
+  z-index: 1;
 }
 
 div.modal-hide-content {
-
+  background: rgba(0,0,0,0.6);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 0;
 }
 
 button.about, button.close-about {

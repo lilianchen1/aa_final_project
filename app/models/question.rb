@@ -20,13 +20,11 @@ class Question < ActiveRecord::Base
   end
 
   def self.sort_by_popularity
-    # need to take into consideration negative votes!!
-    #order count votes.votable_id where value = 1 minus ...value = -1
     Question.joins('LEFT OUTER JOIN votes ON questions.id = votes.votable_id')
       .joins('LEFT OUTER JOIN answers ON answers.question_id = questions.id')
       .where("votes.votable_type = 'Question' OR votes.votable_type IS NULL")
       .group("questions.id")
-      .order("SUM(votes.value) DESC")      
+      .order("SUM(votes.value) DESC")
       .order("COUNT(answers.question_id) DESC")
       .order("questions.created_at DESC")
   end
