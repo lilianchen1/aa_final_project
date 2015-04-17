@@ -14,9 +14,13 @@
  *= require_self
  */
 
+ // @import "bootstrap-sprockets";
+ // @import "bootstrap";
+
  // .fade {
  //   background: gray;
  // }
+
 
  body {
    background-image: url('dna-background.jpg');
@@ -498,24 +502,34 @@ div.about {
 }
 
 button.about, button.close-about {
-  background: none;
-  border: none;
   font-family: times;
   &:hover {
     cursor: pointer;
-    color: #0047B2;
   }
 }
 
 button.about {
+  background:none;
+  border:none;
   float: left;
   color: gray;
   font-size: 18px;
   margin-top: -30px;
+  &:hover {
+    color: #0047B2;
+  }
 }
 
 button.close-about {
-  color: #2E7DB2;
+  background-color: #346781;
+  border: 1px solid #346781;
+  border-radius: 3px;
+  color: white;
   font-weight: bold;
   font-size: 1.2em;
+  padding: 5px;
+  &:hover {
+    background-color:#4A93B8;
+    border:1px solid #4A93B8;
+  }
 }
