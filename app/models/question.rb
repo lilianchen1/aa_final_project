@@ -24,7 +24,7 @@ class Question < ActiveRecord::Base
       .joins('LEFT OUTER JOIN answers ON answers.question_id = questions.id')
       .where("votes.votable_type = 'Question' OR votes.votable_type IS NULL")
       .group("questions.id")
-      .order("SUM(votes.value) DESC")
+      .order("COUNT(votes.votable_id) DESC")
       .order("COUNT(answers.question_id) DESC")
       .order("questions.created_at DESC")
   end
