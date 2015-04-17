@@ -2,7 +2,12 @@ NoPhenotype.Views.UsersIndex = Backbone.View.extend({
   template: JST["users_index"],
 
   events: {
-    "click button.delete-u": "deleteUser"
+    "click button.delete-u": "deleteUser",
+    "click a":"removeMakeGreenClass"
+  },
+
+  removeMakeGreenClass: function() {
+    $("a").removeClass("make-green");
   },
 
   initialize: function() {

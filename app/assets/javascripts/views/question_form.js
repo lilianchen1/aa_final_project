@@ -29,5 +29,6 @@ NoPhenotype.Views.QuestionForm = Backbone.View.extend({
         Backbone.history.navigate("questions/" + this.model.id, {trigger: true});
       }.bind(this)
     });
+    $("a").removeClass("make-green");
   }
 });
