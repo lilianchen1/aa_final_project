@@ -9,16 +9,16 @@ NoPhenotype.Views.AboutView = Backbone.View.extend({
   show: function() {
     var content = this.template();
     this.$el.html(content);
-    // $("#content").addClass("fade");
-    $("#content").css("background", "gray");
-    //append a div with opacity ~0.5 and z index greater than body but less than modal?
+    // $("#content").css("background", "gray");
+    //append a div with opacity ~0.5 and z index greater than body but less than modal?]
+    $("body").prepend("<div class='modal-hide-content'></div>")
     return this;
   },
 
   closeAboutView: function() {
-    // $("#content").removeClass("fade");
-    $("#content").css("background", "");
+    // $("#content").css("background", "");
     //remove that div?
+    $("div.modal-hide-content").remove();
     this.remove();
   }
 });

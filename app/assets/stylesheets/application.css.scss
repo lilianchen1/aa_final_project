@@ -23,6 +23,7 @@
 
 
  body {
+   margin: 0;
    background-image: url('dna-background.jpg');
    background-size: 100%;
  }
@@ -86,6 +87,10 @@
    }
  }
 
+.nav-bar-wrap {
+  overflow:auto;
+  background-color:black;
+}
 
  .nav-bar {
    overflow: auto;
@@ -99,18 +104,31 @@
      display: inline-block;
      margin-right: 20px;
      float: right;
-     form {
+     img {
+       display: inline-block;
+       width: 40px;
+       height: 40px;
+       margin-top: 7px;
+     }
+     h4 {
+       margin-left: 10px;
+       display: inline-block;
+       color: white;
+     }
+     form.button_to {
        text-align: center;
+       display:inline-block;
+       width:100px;
      }
      form div input:nth-child(2) {
-       background-color: #5D6B95;
-       color: white;
+       background-color: white;
+       color: black;
        padding: 5px;
        width: 80%;
        border: none;
-       border-radius: 5px;
+       border-radius: 2px;
        &:hover {
-         background-color: black;
+         background-color: #5D6B95;
        }
      }
 
@@ -119,7 +137,8 @@
 
  #backbone-header {
    margin-top: 60px;
-   margin-left: 250px;
+   float:right;
+   width: 50%;
  }
 
  #backbone-header a {
@@ -131,17 +150,14 @@
    margin: 5px;
    &:hover {
      text-decoration: none;
-     background-color: #003300;
+     background-color: #5A793C;
    }
  }
 
  #content {
-   margin-top: 10px;
+   margin-top: 5px;
    padding: 40px;
-   background: white;
-   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.85) 47%, rgba(237,237,237,0.6) 100%);
-
-
+   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.9) 70%, rgba(237,237,237,0.5) 100%);
  }
 
  .rails-user {
@@ -177,7 +193,7 @@
 
    .question-attr {
      display: inline-block;
-     background-color: #3E4141;
+     background-color: #5A793C;
      color: white;
      padding: 5px;
      text-align: center;
@@ -243,7 +259,7 @@ form button {
   padding: 10px;
   background-color: #ccc;
   border: 1px #ccc;
-  border-radius: 10px;
+  border-radius: 5px;
   &:hover {
     background-color: #6C9A6C;
     cursor: pointer;
@@ -266,7 +282,6 @@ form button {
   margin-right: 20px;
   padding: 5px;
   background-color: #B5CDFF;
-  border-radius: 5px;
   float: right;
   display: inline-block;
   width: 170px;
@@ -325,7 +340,7 @@ ul.users-list {
 
 button.new-comment, button.new-answer-comment {
   background-color: #eee;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   color: gray;
   margin-left: 100px;
@@ -377,7 +392,7 @@ textarea.comment-form {
 
 button.search-q {
   padding: 2px;
-  background-color: #003300;
+  background-color: #5A793C;
   border: none;
   border-radius: 5px;
   color: white;
@@ -438,15 +453,14 @@ a.edit-q-show {
 
 button.popularity-sort {
   margin-left: 30px;
-  background: #D8D8DE;
-  border-top: none;
-  border-right: none;
-  border-left: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-top:none;
+  border-right:none;
+  border-bottom: 1px solid #7A7A7B;
+  border-left: 1px solid #7A7A7B;
   font-family: times;
   font-size: 16px;
-  border-radius: 2px;
-  padding: 5px;
+  background-color: #eee;
+  padding: 8px;
   &:hover {
     cursor: pointer;
   }
@@ -486,7 +500,7 @@ button.upvote {
 }
 
 button.upvote-selected {
-  border-bottom: 20px solid #003300;
+  border-bottom: 20px solid green;
   background: none;
   &:hover {
     background: none;
@@ -503,6 +517,10 @@ div.about {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
+}
+
+div.modal-hide-content {
+  
 }
 
 button.about, button.close-about {
