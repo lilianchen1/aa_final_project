@@ -90,7 +90,6 @@
  .nav-bar {
    overflow: auto;
    background-color: white;
-   opacity: 0.7;
 
    img {
      float: left;
@@ -119,8 +118,6 @@
  }
 
  #backbone-header {
-  //  float: right;
-  //  width: 50%;
    margin-top: 60px;
    margin-left: 250px;
  }
@@ -128,11 +125,10 @@
  #backbone-header a {
    text-decoration: none;
    display: inline-block;
-   background-color: black;
+   background-color: #7A7A7B;
    color: white;
    padding: 8px;
    margin: 5px;
-   border-radius: 5px;
    &:hover {
      text-decoration: none;
      background-color: #003300;
@@ -143,7 +139,7 @@
    margin-top: 10px;
    padding: 40px;
    background: white;
-   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.85) 47%, rgba(237,237,237,0.65) 100%);
+   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.85) 47%, rgba(237,237,237,0.6) 100%);
 
 
  }
@@ -184,7 +180,6 @@
      background-color: #3E4141;
      color: white;
      padding: 5px;
-     border-radius: 5px;
      text-align: center;
      margin-top: 15px;
    }
@@ -443,6 +438,15 @@ a.edit-q-show {
 
 button.popularity-sort {
   margin-left: 30px;
+  background: #D8D8DE;
+  border-top: none;
+  border-right: none;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
+  font-family: times;
+  font-size: 16px;
+  border-radius: 2px;
+  padding: 5px;
   &:hover {
     cursor: pointer;
   }
@@ -512,7 +516,7 @@ button.about {
   background:none;
   border:none;
   float: left;
-  color: gray;
+  color: #7A7A7B;
   font-size: 18px;
   margin-top: -30px;
   &:hover {
