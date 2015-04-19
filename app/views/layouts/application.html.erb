@@ -18,8 +18,8 @@
     <div class="nav-bar">
       <div class="nav-bar-wrap">
         <div class="nav-bar-right">
-          <h4><a href="#/users/<%= current_user.id %>"><%= current_user.username %></a></h4>
-          <a href="#/users/<%= current_user.id %>"><img src="<%= current_user.img_url %>"/></a>
+          <h4><a class="profile-link" href="#/users/<%= current_user.id %>"><%= current_user.username %></a></h4>
+          <a class="profile-link" href="#/users/<%= current_user.id %>"><img src="<%= current_user.img_url %>"/></a>
 
           <%= button_to "Log Out", session_url(
           Session.find_by_session_token(session[:session_token]
@@ -28,6 +28,12 @@
       </div>
       <%= link_to image_tag("NoPhenotype.png"), root_url %>
     </div>
+
+    <script>
+      $("a.profile-link").on("click", function(event) {
+        $("a").removeClass("make-green");
+      });
+    </script>
 
   <% end %>
 

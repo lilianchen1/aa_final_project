@@ -10,25 +10,40 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     'submit form': 'handleMatchedQ',
     'click button.popularity-sort': function(event) {
       this.sortByPopularity(event);
-      // this.addColorClass(event);
     },
+    'click button.newest': function(event) {
+      this.renderByCreatedAt(event);
+    },
+
+    'click a': "removeMakeGreen"
   },
 
-  // addColorClass: function(event) {
-  //   $("a.newest").css("background-color", "");
-  // },
+  removeMakeGreen: function() {
+    $("a.all-questions-link").removeClass("make-green");
+  },
+
+  renderByCreatedAt: function(event) {
+    event.preventDefault();
+    this.$("ul.questions-index").empty();
+    this.collection.order_by_date();
+    this.collection.fetch({
+      success: function(response) {
+        this.render();
+      }.bind(this)
+    });
+  },
 
   sortByPopularity: function(event) {
     event.preventDefault();
     this.$("ul.questions-index").empty();
-      this.collection.order_by_popularity();
-      this.sortingNow = true;
-      this.collection.fetch({
-        data: { sort: this.sortingNow },
-        success: function(response) {
-          this.renderByPopularity();
-        }.bind(this)
-      });
+    this.collection.order_by_popularity();
+    this.sortingNow = true;
+    this.collection.fetch({
+      data: { sort: this.sortingNow },
+      success: function(response) {
+        this.renderByPopularity();
+      }.bind(this)
+    });
   },
 
   renderByPopularity: function() {

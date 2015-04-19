@@ -19,6 +19,7 @@ NoPhenotype.Views.HeaderView = Backbone.View.extend({
   },
 
   swapLinkColor: function(event) {
+    this.$("a.all-questions-link").removeClass("make-green");
     if (this._currentLink) {
       this._currentLink.removeClass("make-green");
     }

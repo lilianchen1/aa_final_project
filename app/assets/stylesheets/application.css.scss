@@ -466,7 +466,8 @@ a.edit-q-show {
 }
 
 
-button.popularity-sort, a.newest {
+button.popularity-sort, button.newest {
+  width: 140px;
   margin-left: 30px;
   border-top:none;
   border-right:none;
@@ -475,10 +476,16 @@ button.popularity-sort, a.newest {
   font-family: times;
   font-size: 16px;
   background-color: #eee;
-  padding: 8px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   &:hover {
+    background-color: rgb(255, 189, 92);
     cursor: pointer;
   }
+}
+
+button.add-color {
+  background-color: rgb(255, 189, 92);
 }
 
 a.newest {

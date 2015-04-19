@@ -6,6 +6,15 @@ NoPhenotype.Collections.Questions = Backbone.Collection.extend({
     return -Date.parse(question.get("created_at"));
   },
 
+  order_by_date: function() {
+    this.comparator = this._order_by_date;
+    this.sort();
+  },
+
+  _order_by_date: function(question) {
+    return -Date.parse(question.get("created_at"));
+  },
+
   order_by_popularity: function() {
     this.comparator = this._order_by_popularity;
     this.sort();
