@@ -28,6 +28,12 @@ class Question < ActiveRecord::Base
             .order('questions.created_at DESC')
   end
 
+  def self.unanswered
+    Question.joins("LEFT OUTER JOIN answers ON questions.id = answers.question_id")
+            .where("answers.question_id IS NULL")
+            .order("questions.created_at DESC")
+  end
+
   def self.sort_by_popularity
     subquery = Question.select("questions.*, SUM(COALESCE(votes.value, 0)) AS votes_count")
             .joins("LEFT OUTER JOIN votes ON questions.id = votes.votable_id")

@@ -27,6 +27,11 @@ class Api::QuestionsController < Api::ApiController
         Question.sort_by_popularity.to_a
       ).page(params[:page]).per(7)
       render :index
+    elsif params[:unanswered].present?
+      @questions = Kaminari::paginate_array(
+        Question.unanswered.to_a
+      ).page(params[:page]).per(50)
+      render :index
     else
       @questions = Question.order('questions.created_at DESC').page(params[:page]).per(7)
       render :index

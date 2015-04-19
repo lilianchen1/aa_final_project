@@ -7,9 +7,16 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   events: {
-    "submit form": "handleMatchedQ",
-    "click button.popularity-sort": "sortByPopularity"
+    'submit form': 'handleMatchedQ',
+    'click button.popularity-sort': function(event) {
+      this.sortByPopularity(event);
+      // this.addColorClass(event);
+    },
   },
+
+  // addColorClass: function(event) {
+  //   $("a.newest").css("background-color", "");
+  // },
 
   sortByPopularity: function(event) {
     event.preventDefault();

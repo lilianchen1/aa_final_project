@@ -5,16 +5,7 @@ NoPhenotype.Views.HeaderView = Backbone.View.extend({
   events: {
     "click button.about": "renderAbout",
     "click a": "swapLinkColor",
-    // "click a.all-questions-link": "renderAllQ"
   },
-
-  // renderAllQ: function() {
-  //   var indexView = new NoPhenotype.Views.QuestionsIndex({
-  //     collection: this.collection
-  //   });
-  //   $("ul.questions-index").empty();
-  //   indexView.render();
-  // },
 
   render: function() {
     var content = this.template();

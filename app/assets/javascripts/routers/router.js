@@ -17,10 +17,19 @@ NoPhenotype.Routers.Router = Backbone.Router.extend({
     "questions/new": "new",
     "questions/:id": "show",
     "questions/:id/edit": "edit",
+    "unanswered": "unanswered",
     "tags": "tagIndex",
     "tags/:id": "tagShow",
     "users": "usersIndex",
     "users/:id": "userShow"
+  },
+
+  unanswered: function() {
+    this.questions.fetch();
+    var unansweredView = new NoPhenotype.Views.UnansweredQuestions({
+      collection: this.questions
+    });
+    this._swapView(unansweredView);
   },
 
   usersIndex: function() {

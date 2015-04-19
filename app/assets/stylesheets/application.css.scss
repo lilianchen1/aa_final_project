@@ -90,14 +90,17 @@
 .nav-bar-wrap {
   overflow:auto;
   background-color:black;
+  height: 50px;
 }
 
  .nav-bar {
    overflow: auto;
    background-color: white;
+   height: 150px;
 
    img {
      float: left;
+     height: 100px;
    }
 
    .nav-bar-right {
@@ -113,7 +116,10 @@
      h4 {
        margin-left: 10px;
        display: inline-block;
-       color: white;
+       a {
+         color: white;
+         text-decoration: none;
+       }
      }
      form.button_to {
        text-align: center;
@@ -136,9 +142,11 @@
  }
 
  #backbone-header {
-   margin-top: 60px;
-   float:right;
-   width: 50%;
+   margin-top: 50px;
+   float:left;
+   a.all-questions-link {
+     margin-left: 200px;
+   }
  }
 
 
@@ -198,6 +206,7 @@
    overflow: auto;
 
    .question-attr {
+     width: 58px;
      display: inline-block;
      background-color: #5A793C;
      color: white;
@@ -457,7 +466,7 @@ a.edit-q-show {
 }
 
 
-button.popularity-sort {
+button.popularity-sort, a.newest {
   margin-left: 30px;
   border-top:none;
   border-right:none;
@@ -470,6 +479,11 @@ button.popularity-sort {
   &:hover {
     cursor: pointer;
   }
+}
+
+a.newest {
+  text-decoration: none;
+  color: black;
 }
 
 button.upvote, button.downvote, button.upvote-selected, button.downvote-selected {
@@ -544,9 +558,9 @@ button.about, button.close-about {
 }
 
 button.about {
+  display: inline-block;
   background:none;
   border:none;
-  float: left;
   color: #7A7A7B;
   font-size: 18px;
   margin-top: -30px;
