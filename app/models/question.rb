@@ -46,29 +46,6 @@ class Question < ActiveRecord::Base
     .group("a.id, a.title, a.content, a.created_at, a.updated_at, a.user_id, a.votes_count")
     .order("a.votes_count DESC, COUNT(answers.id) DESC, a.created_at DESC")
 
-    # Question.find_by_sql()
-#     <<-SQL
-#   SELECT
-#     questions.*, COUNT(answers.id) AS answer_count
-#   FROM
-#     (SELECT
-#       questions.*, SUM(COALESCE(votes.value, 0)) AS vote_count
-#     FROM
-#       questions
-#     LEFT OUTER JOIN
-#       votes ON questions.id = votes.votable_id
-#     WHERE
-#       votes.votable_type IS NULL OR votes.votable_type = 'Question'
-#     GROUP BY
-#       questions.id) questions
-#   LEFT OUTER JOIN
-#     answers ON questions.id = answers.question_id
-#   GROUP BY
-#     questions.id, questions.title, questions.content, questions.created_at, questions.updated_at, questions.user_id, questions.vote_count
-#   ORDER BY
-#     questions.vote_count DESC, COUNT(answers.id) DESC, questions.created_at
-# SQL
-
-      res
+    res
   end
 end

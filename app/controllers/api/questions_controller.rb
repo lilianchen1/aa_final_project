@@ -33,7 +33,9 @@ class Api::QuestionsController < Api::ApiController
       ).page(params[:page]).per(50)
       render :index
     else
-      @questions = Question.order('questions.created_at DESC').page(params[:page]).per(7)
+      @questions = Kaminari::paginate_array(
+        Question.order('questions.created_at DESC').to_a
+      ).page(params[:page]).per(7)
       render :index
     end
   end

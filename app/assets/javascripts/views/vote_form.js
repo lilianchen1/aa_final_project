@@ -18,7 +18,7 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
       votableModel: this.votableModel,
     });
     this.$el.html(content);
-  
+
     return this;
   },
 
@@ -49,14 +49,6 @@ NoPhenotype.Views.VoteForm = Backbone.View.extend({
     });
 
     if (deleteVotes.length >= 1) {
-      // debugger
-      // if (deleteVotes[0].get('value') !== vote.get('value')) {
-      //   vote.save({}, {
-      //     success: function() {
-      //       this.collection.add(vote);
-      //     }.bind(this),
-      //   });
-      // }
 
       for (var i = 0; i < deleteVotes.length; i++) {
         deleteVotes[i].destroy();

@@ -26,9 +26,11 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     event.preventDefault();
     this.$("ul.questions-index").empty();
     this.collection.order_by_date();
+    this.sortingNow = null;
     this.collection.fetch({
+      data: { sort: this.sortingNow },
       success: function(response) {
-        this.render();
+        this.renderSort();
       }.bind(this)
     });
   },
@@ -41,12 +43,12 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
     this.collection.fetch({
       data: { sort: this.sortingNow },
       success: function(response) {
-        this.renderByPopularity();
+        this.renderSort();
       }.bind(this)
     });
   },
 
-  renderByPopularity: function() {
+  renderSort: function() {
     for (var j = 0; j < this.collection.length; j++) {
         var questionIndexView = new NoPhenotype.Views.QuestionIndexItem({model: this.collection.at(j)});
         this.$("ul.questions-index").append(questionIndexView.render().$el);
@@ -55,7 +57,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   handleMatchedQ: function(event) {
     event.preventDefault();
-    this.inputData = {};
     this.inputData = { "query": this.$(".search").val() };
     this.searchList = new NoPhenotype.Collections.Questions();
     this.listenTo(this.searchList, "sync", this.renderMatchedQ);
@@ -69,6 +70,8 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   renderMatchedQ: function() {
+    this.$("h3").html("Searched Questions");
+    this.$("button").remove();
     this.$("ul.questions-index").empty();
     if (this.searchList.length === 0) {
       this.$("ul.questions-index").html("no question's title or content match your input");
@@ -94,7 +97,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   listenForScroll: function() {
-    $(window).off("scroll"); // remove previous listeners
+    $(window).off("scroll");
     var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
     $(window).on("scroll", throttledCallback);
   },
@@ -104,11 +107,8 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
       var view = this;
       if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
         if (view.collection.page < view.collection.total_pages) {
-          this.inputData = this.inputData || {};
-          this.inputData.sort = this.sortingNow;
-          this.inputData.page = view.collection.page + 1;
           view.collection.fetch({
-            data: this.inputData,
+            data: {sort: this.sortingNow, page: view.collection.page + 1},
             remove: false
           });
         }
@@ -121,8 +121,6 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
       var view1 = this;
       if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
         if (view1.searchList.page < view1.searchList.total_pages) {
-          this.inputData = this.inputData || {};
-          this.inputData.sort = this.sortingNow;
           this.inputData.page = view1.searchList.page + 1;
           view1.searchList.fetch({
             data: this.inputData,
