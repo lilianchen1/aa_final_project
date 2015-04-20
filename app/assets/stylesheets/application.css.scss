@@ -14,14 +14,6 @@
  *= require_self
  */
 
- // @import "bootstrap-sprockets";
- // @import "bootstrap";
-
- // .fade {
- //   background: gray;
- // }
-
-
  body {
    margin: 0;
    background-image: url('dna-background.jpg');
@@ -400,7 +392,7 @@ textarea.comment-form {
   display: inline-block;
   float: right;
   margin: 15px;
-  background-color: #FFE4C4;
+  background-color: rgb(193, 213, 255);
   padding: 2px;
   border-radius: 5px;
 }
