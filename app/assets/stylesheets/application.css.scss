@@ -163,7 +163,7 @@
  #content {
    margin-top: 5px;
    padding: 40px;
-   background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,0.9) 70%, rgba(237,237,237,0.5) 100%);
+   background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,0.9) 70%, rgba(237,237,237,0.5) 100%);
  }
 
  .rails-user {
