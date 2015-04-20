@@ -71,6 +71,7 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
 
   renderMatchedQ: function() {
     this.$("h3").html("Searched Questions");
+    this.$("h3").append("<a class='back-to-q' href=''>Back to all questions</a>");
     this.$("button").remove();
     this.$("ul.questions-index").empty();
     if (this.searchList.length === 0) {
