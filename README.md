@@ -4,6 +4,10 @@
 
 [heroku]: https://no-phenotype.herokuapp.com/
 
+[custom domain link][custom]
+
+[custom]: http://www.no-phenotype.com/
+
 
 ## Minimum Viable Product
 NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
@@ -94,10 +98,9 @@ Basic profile page (picture, username, short bio)
 
 ### Bonus Features
 - [X] User Profile Page - Display list of questions with link to question by title
-- [ ] Users' index page and search for users by username
+- [X] Users' index page
 - [X] Search for tags
 - [X] Search for questions
 - [X] Link to Sort questions by popularity
 - [X] About blurb for website
-- [ ] Editing ability for user's profile
-- [ ] Unanswered questions
+- [X] Unanswered questions
