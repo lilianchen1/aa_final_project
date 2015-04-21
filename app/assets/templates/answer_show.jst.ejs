@@ -3,13 +3,20 @@
 <% } %>
 
 <% if (window.currentUser && parseInt(window.currentUser.current_user_id) === question.user_id) { %>
-  <button class="accept-answer">
-    <% if (answer.escape('accepted') === "false") { %>
-      accept answer
-    <% } else { %>
-      unaccept answer
+  <% if (already_accepted === false) { %>
+    <button class="accept-answer">
+      <% if (answer.escape('accepted') === "false") { %>
+        accept answer
+      <% } else { %>
+        unaccept answer
+      <% } %>
+    </button>
+  <% } %>
+  <% if (already_accepted === true) { %>
+    <% if (answer.id === already_accepted_answer.id) { %>
+      <button class="accept-answer">unaccept answer</button>
     <% } %>
-  </button>
+  <% } %>
 <% } %>
 
 <div class="a-info-show">
@@ -19,7 +26,7 @@
     Answered: <%= (answer.escape("created_at")).slice(0, 10) %>
     <br>
     <img src="<%= answer.get('user_img') %>"/>
-    <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a>   
+    <a href="#/users/<%= answer.escape('user_id') %>"><%= answer.get('user') %></a>
   </p>
 
   <% if (answer.escape('accepted') === "true") { %>

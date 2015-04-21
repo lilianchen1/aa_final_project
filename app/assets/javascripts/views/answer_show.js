@@ -3,10 +3,11 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
   tagName: "li",
   className: "answer",
 
-  initialize: function() {
-    this.listenTo(this.model, "sync add change:vote_count", this.render);
+  initialize: function(options) {
+    this.listenTo(this.model, "sync add change:vote_count change:accepted", this.render);
     this.listenTo(this.model.votes(), "remove", this.render);
     this.listenTo(this.model.comments(), "add remove", this.render);
+    this.questionModel = options.questionModel;
   },
 
   events: {
@@ -20,7 +21,7 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
     if (this.model.get('accepted') === false) {
       this.model.set("accepted", true);
     } else {
-      this.model.set("accepted", false)
+      this.model.set("accepted", false);
     }
 
     this.model.save();
@@ -50,9 +51,19 @@ NoPhenotype.Views.AnswerShow = Backbone.View.extend({
 
   render: function() {
     var question1 = this.model.get('question');
+    var accepted = false;
+    var answer1;
+    this.questionModel.answers().each(function(answer) {
+      if (answer.get('accepted') === true) {
+        accepted = true;
+        answer1 = answer;
+      }
+    });
     var content = this.template({
       answer: this.model,
-      question: question1
+      question: question1,
+      already_accepted: accepted,
+      already_accepted_answer: answer1
     });
     this.$el.html(content);
     var voteModel;

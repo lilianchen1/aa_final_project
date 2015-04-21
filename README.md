@@ -98,7 +98,7 @@ Basic profile page (picture, username, short bio)
 
 ### Bonus Features
 - [X] User Profile Page - Display list of questions with link to question by title
-- [X] Users' index page
+- [X] Users' index page and search for users
 - [X] Search for tags
 - [X] Search for questions
 - [X] Link to Sort questions by popularity
