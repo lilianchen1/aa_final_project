@@ -4,8 +4,12 @@
 </form>
 <h3 style="display:inline-block;">All Questions</h3>
 
-<button class="newest">Newest</button>
-
-<button class="popularity-sort">Sort by popularity</button>
+<% if (popularity_sort === true) { %>
+  <button class="newest">Newest</button>
+  <button class="popularity-sort-selected">Sort by popularity</button>
+<% } else { %>
+  <button class="newest-selected">Newest</button>
+  <button class="popularity-sort">Sort by popularity</button>
+<% } %>
 
 <ul class="questions-index"></ul>

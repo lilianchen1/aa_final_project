@@ -479,7 +479,23 @@ button.popularity-sort, button.newest {
   padding-top: 5px;
   padding-bottom: 5px;
   &:hover {
-    background-color: rgb(255, 189, 92);
+    cursor: pointer;
+  }
+}
+
+button.popularity-sort-selected, button.newest-selected {
+  width: 140px;
+  margin-left: 30px;
+  border-top:none;
+  border-right:none;
+  border-bottom: 1px solid #7A7A7B;
+  border-left: 1px solid #7A7A7B;
+  font-family: times;
+  font-size: 16px;
+  background-color: rgb(255, 189, 92);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  &:hover {
     cursor: pointer;
   }
 }

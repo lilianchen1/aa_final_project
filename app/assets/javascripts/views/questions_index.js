@@ -85,7 +85,9 @@ NoPhenotype.Views.QuestionsIndex = Backbone.View.extend({
   },
 
   render: function() {
-    var content = this.template();
+    var content = this.template({
+      popularity_sort: this.sortingNow
+    });
     this.$el.html(content);
     this.collection.each(function(question) {
       var indexItemView = new NoPhenotype.Views.QuestionIndexItem({
