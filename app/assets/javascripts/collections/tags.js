@@ -20,8 +20,8 @@ NoPhenotype.Collections.Tags = Backbone.Collection.extend({
   },
 
   parse: function(response) {
-    this.page = response.page ? response.page : 1;
-    this.total_pages = response.total_pages;
+    this.page = response.page ? parseInt(response.page) : 1;
+    this.total_pages = parseInt(response.total_pages);
     return response.models || response;
   }
 });

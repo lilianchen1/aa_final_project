@@ -322,10 +322,11 @@ form.vote {
 }
 
 ul.users-list {
+  list-style: none;
   li {
-    display: inline-block;
-    list-style: none;
-    margin: 20px;
+    overflow:auto;
+    margin-bottom: 20px;
+
     a.username {
       float: left;
       margin-left: 10px;

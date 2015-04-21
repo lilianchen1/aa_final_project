@@ -19,5 +19,11 @@ NoPhenotype.Collections.Users = Backbone.Collection.extend({
     });
 
     return user;
+  },
+
+  parse: function(response) {
+    this.page = response.page ? parseInt(response.page) : 1;
+    this.total_pages = parseInt(response.total_pages);
+    return response.models || response;
   }
 });
