@@ -2,8 +2,8 @@ class User < ActiveRecord::Base
   validates :username, :email, :password_digest, presence: true
   validates :username, :email, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :username, length: { maximum: 14 }
   attr_reader :password
-  # after_initialize :ensure_session_token
 
   has_many :sessions
   has_many :questions
@@ -26,13 +26,4 @@ class User < ActiveRecord::Base
     user.is_password?(password) ? user : nil
   end
 
-  # def reset_session_token!
-  #   self.session_token = SecureRandom::urlsafe_base64
-  #   self.save!
-  #   self.session_token
-  # end
-  #
-  # def ensure_session_token
-  #   self.session_token ||= SecureRandom::urlsafe_base64
-  # end
 end
