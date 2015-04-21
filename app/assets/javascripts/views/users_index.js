@@ -29,6 +29,7 @@ NoPhenotype.Views.UsersIndex = Backbone.View.extend({
     event.preventDefault();
     this.inputData = { "query": this.$(".search").val() };
     this.searchList = new NoPhenotype.Collections.Users();
+    this.listenTo(this.searchList, "sync", this.renderMatchedUser);
     this.searchList.fetch({
       data: this.inputData,
       success: function(response) {
@@ -53,16 +54,30 @@ NoPhenotype.Views.UsersIndex = Backbone.View.extend({
   },
 
   nextPage: function () {
-    if (this.$(".search").val() !== "") {
-      return;
+    if (!this.searchList) {
+      var view = this;
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        if (view.collection.page < view.collection.total_pages) {
+          view.collection.fetch({
+            data: {page: view.collection.page + 1},
+            remove: false
+          });
+        }
+      }
     }
-    var view = this;
-    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-      if (view.collection.page < view.collection.total_pages) {
-        view.collection.fetch({
-          data: { page: view.collection.page + 1 },
-          remove: false
-        });
+    if (this.searchList) {
+      if ((this.searchList.page === this.searchList.total_pages) && this.$(".search").val() !== "") {
+        return;
+      }
+      var view1 = this;
+      if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+        if (view1.searchList.page < view1.searchList.total_pages) {
+          this.inputData.page = view1.searchList.page + 1;
+          view1.searchList.fetch({
+            data: this.inputData,
+            remove: false
+          });
+        }
       }
     }
   },

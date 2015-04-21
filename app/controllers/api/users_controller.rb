@@ -3,12 +3,10 @@ class Api::UsersController < Api::ApiController
   def index
     if params[:query].present?
       @users = User.where("username ~ ?", params[:query])
-                   .order('LOWER(username)').page(params[:page]).per(10)
+                   .order('LOWER(username)').page(params[:page]).per(4)
       render :index
     else
-      @users = Kaminari::paginate_array(
-        User.order('LOWER(username)').to_a
-      ).page(params[:page]).per(10)
+      @users = User.order('LOWER(username)').page(params[:page]).per(4)
       render :index
     end
   end
