@@ -8,7 +8,7 @@
       <% end %>
     </ul>
     <%= image_tag "NoPhenotype.png", width:'100%' %>
-    <!-- <h2>Sign Up</h2> -->
+    <h3>Already have an account? <a href="/sessions/new" class="signup-link">Log in!</a></h3>
     <form action="/users" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
       <label>
