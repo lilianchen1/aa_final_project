@@ -87,6 +87,8 @@ The idea is for comments to be displayed on answer show view (which is itself a 
 ### Phase 5: Upvote/downvote (2 days)
 Users can upvote and downvote both questions and answers. Questions and Answer
 show view display NET number of upvotes and downvotes. (Upvote - downvote).
+Users can only vote on a specific question and answer once. Restriction is implemented such that
+a second vote on the model deletes the previous one from the database.
 
 ### Phase 6: Accept Answers (0.5 day)
 User who asked a question can accept an answer for the question. Accepting
