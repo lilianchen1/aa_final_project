@@ -25,7 +25,7 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 - [X] Upvote and downvote questions and answers
 - [X] View their own profile page
 - [X] View other users' profile page
-- [X] Infinite Scroll (questions index page and tags index page)
+- [X] Infinite Scroll (questions index, tags index, users index)
 - [X] Accepting Answers (green checkmark)
 - [X] Multiple sessions (useful for guest account login)
 - [X] User picture
@@ -37,6 +37,52 @@ NoPhenotype is a clone of StackOverflow built on Rails and Backbone. Users can:
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
+
+## Feature Code
+
+#### Infinite Scroll Implementation with Sorting by popularity
+
+To implement infinite scroll combined with sorting questions by
+popularity (first by number of votes, then by number of answers), all questions
+must be first sorted in the backend. This is accomplished with ActiveRecord queries by joining and ordering questions, votes, and answers tables.
+
+* Question Model's sort_by_popularity class method:
+
+```ruby
+def self.sort_by_popularity
+    subquery = Question.select("questions.*, SUM(COALESCE(votes.value, 0)) AS  votes_count")
+                        .joins("LEFT OUTER JOIN votes ON questions.id = votes.votable_id")
+                        .where("votes.votable_type IS NULL OR votes.votable_type = 'Question'")
+                        .group("questions.id")
+
+    res = Question.select("a.*, COUNT(answers.id) AS answer_count")
+                  .from(subquery, :a)
+                  .joins("LEFT OUTER JOIN answers ON a.id = answers.question_id")
+                  .group("a.id, a.title, a.content, a.created_at, a.updated_at, a.user_id, a.votes_count")
+                  .order("a.votes_count DESC, COUNT(answers.id) DESC, a.created_at DESC")
+    res
+  end
+
+```
+
+* QuestionsController index method calls sort_by_popularity to sort the questions
+
+```ruby
+
+  def index
+    ...
+
+    elsif params[:sort].present?
+      @questions = Kaminari::paginate_array(
+        Question.sort_by_popularity.to_a
+      ).page(params[:page]).per(7)
+      render :index
+
+    ...
+
+  end
+
+```
 
 ## Implementation Timeline
 
