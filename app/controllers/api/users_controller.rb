@@ -3,10 +3,10 @@ class Api::UsersController < Api::ApiController
   def index
     if params[:query].present?
       @users = User.where("username ~ ?", params[:query])
-                   .order('LOWER(username)').page(params[:page]).per(8)
+                   .order('LOWER(username)').page(params[:page]).per(15)
       render :index
     else
-      @users = User.order('LOWER(username)').page(params[:page]).per(8)
+      @users = User.order('LOWER(username)').page(params[:page]).per(15)
       render :index
     end
   end
